@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Mulish, Montserrat_Alternates } from "next/font/google";
+import { Geist, Geist_Mono, Mulish, Montserrat_Alternates, MedievalSharp } from "next/font/google";
 import "./globals.css";
 
 // Fonts
@@ -21,6 +21,12 @@ const montserratAlternates = Montserrat_Alternates({
   variable: "--font-ms",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+
+const medievalSharp = MedievalSharp({
+  variable: "--font-medieval-sharp",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -82,7 +88,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased ${mulish.variable} ${montserratAlternates.variable} ${medievalSharp.variable}`}
       >
         {children}
       </body>

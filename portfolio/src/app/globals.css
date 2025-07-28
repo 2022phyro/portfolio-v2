@@ -1,15 +1,57 @@
 @import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-geist-sans: var(--geist-sans);
+  --font-geist-mono: var(--geist-mono);
+  --font-mulish: var(--mulish);
+  --font-ms: var(--montserrat-alternates);
+  --font-medieval-sharp: var(--medieval-sharp);
+
+
+  /* Branding */
+  --primary: #43766c;
+  --secondary: #a2d6cc;
+  --pri-dark: #43766e;
+  --accent: #f8fae5;
+  --bg: #f5f5f5;
+  --bg-alt: #f4f5f2;
+
+  /* Text */
+  --text: #0b2f28;
+  --text-alt: #374d49;
+
+  /* Font */
+  --heading: var(--font-ms);
+  --body: var(--font-mulish);
+  --card-heading: var(--mulish);
+  --style: var(--font-medieval-sharp);
+
+  --background: var(--bg);
+  --foreground: var(--text);
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-pri-dark: var(--pri-dark);
+  --color-accent: var(--accent);
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-text: var(--text);
+  --color-text-alt: var(--text-alt);
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-mulish: var(--font-mulish);
+  --font-ms: var(--font-ms);
+  --font-medieval-sharp: var(--font-medieval-sharp);
+  --font-heading: var(--heading);
+  --font-body: var(--body);
+  --font-card-heading: var(--card-heading);
+  --font-style: var(--style);
 }
 
 @media (prefers-color-scheme: dark) {
