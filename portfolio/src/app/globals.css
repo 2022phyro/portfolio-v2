@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@layer theme, base, components, utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --font-geist-sans: var(--geist-sans);
   --font-geist-mono: var(--geist-mono);
