@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, Menu, Twitter, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -65,11 +65,10 @@ const Header = () => {
     <>
       {/* Desktop Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-50 mt-2 transition-transform duration-300 ease-in-out ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } hidden md:block`}
-      >
-        <div
+      >        <div
           className={`transition-all duration-300 ease-in-out ${
             isScrolled
               ? "bg-background/80 backdrop-blur-md border-b border-primary/20"
@@ -77,45 +76,67 @@ const Header = () => {
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="mt-2 flex items-center justify-between h-16">
-              {" "}
-              {/* Logo */}
-              <div className="flex-shrink-0">
-                <Link
-                  href="#home"
-                  className="flex items-center font-medieval-sharp text-2xl font-bold text-primary"
-                >
-                  <Image
-                    src="/logo.png"
-                    alt="Logo"
-                    width={50}
-                    height={50}
-                    className="mr-2"
-                  />
-                  <span className="text-md"> Afam the chameleony dev</span>
-                </Link>
-              </div>{" "}              {/* Desktop Navigation */}
-              <nav className="flex space-x-6">
-                {navItems.map((item) => (
+            <div className="flex gap-0 flex-col items-center justify-between h-20">
+              {/* Top row with Logo and Navigation */}
+              <div className="flex items-center justify-between w-full h-12 ">
+                {/* Logo */}
+                <div className="flex-shrink-0">
                   <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`relative font-medieval-sharp text-lg font-bold transition-colors duration-200 font-medium group ${
-                      activeSection === item.id 
-                        ? 'text-text' 
-                        : 'text-text hover:text-primary'
-                    }`}
+                    href="#home"
+                    className="flex items-center font-medieval-sharp text-2xl font-bold text-primary"
                   >
-                    {item.name}
-                    {/* Hover underline */}
-                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
-                    {/* Active underline */}
-                    {activeSection === item.id && (
-                      <span className="absolute left-0 bottom-0 w-full h-0.5 bg-primary"></span>
-                    )}
+                    <Image
+                      src="/logo.png"
+                      alt="Logo"
+                      width={50}
+                      height={50}
+                      className="mr-2"
+                    />
+                    <span className="text-md"> Afam the chameleony dev</span>
                   </Link>
-                ))}
-              </nav>
+                </div>
+
+                {/* Desktop Navigation */}
+                <nav className="flex space-x-6">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`self-end relative font-medieval-sharp text-lg font-bold transition-colors duration-200 font-medium group ${
+                        activeSection === item.id 
+                          ? 'text-text' 
+                          : 'text-text hover:text-primary'
+                      }`}
+                    >
+                      {item.name}
+                      {/* Hover underline */}
+                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
+                      {/* Active underline */}
+                      {activeSection === item.id && (
+                        <span className="absolute left-0 bottom-0 w-full h-0.5 bg-primary"></span>
+                      )}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              {/* Bottom row with Socials */}
+              <div className="flex justify-end self-end w-auto h-10 bg-primary px-5 rounded-tl-3xl rounded-br-3xl ">
+                <div className="flex space-x-6 self-center">
+                  <Link href="mailto:afam.ugwuanyi.u@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <Mail className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
+                  </Link>
+                  <Link href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                    <Github className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
+                  </Link>
+                  <Link href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
+                    <Twitter className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
+                  </Link>
+                  <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -188,15 +209,27 @@ const Header = () => {
                 </Link>
               ))}
             </div>
-          </nav>
-          {/* Mobile Footer */}
+          </nav>          {/* Mobile Footer */}
           <div className="px-6 py-4 border-t border-primary/20">
-            <p className="font-body text-text-alt text-sm">© 2025 Portfolio</p>
+            <p className="font-body text-text-alt text-sm mb-4">© 2025 Portfolio</p>
+            {/* Mobile Socials */}
+            <div className="flex space-x-4 justify-center">
+              <Link href="mailto:afam.ugwuanyi.u@gmail.com" target="_blank" rel="noopener noreferrer">
+                <Mail className="w-6 h-6 text-text hover:text-primary transition-colors duration-200" />
+              </Link>
+              <Link href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                <Github className="w-6 h-6 text-text hover:text-primary transition-colors duration-200" />
+              </Link>
+              <Link href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
+                <Twitter className="w-6 h-6 text-text hover:text-primary transition-colors duration-200" />
+              </Link>
+              <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-6 h-6 text-text hover:text-primary transition-colors duration-200" />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Mobile Overlay */}
+      </div>      {/* Mobile Overlay */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/50 md:hidden"
