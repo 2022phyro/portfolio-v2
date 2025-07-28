@@ -3,7 +3,7 @@
 import Image from "next/image";
 import ThreeDButton from "./button";
 
-const Home = () => {
+const About = () => {
   return (
     <section
       id="home"
@@ -30,7 +30,7 @@ const Home = () => {
         </p>{" "}
         <div className="mt-10 flex flex-row flex-wrap justify-between gap-8 mt-4">
           <ThreeDButton
-            className="w-50 h-15"
+            className="w-50 h-15 rounded-full"
             leaf="rounded-tr-3xl rounded-bl-3xl"
           >
             View my resume
@@ -39,7 +39,7 @@ const Home = () => {
           <ThreeDButton
             variant="brand"
             leaf="rounded-tl-3xl rounded-br-3xl"
-            className="w-50 h-15"
+            className="w-50 h-15 rounded-lg text-white"
           >
             Let's chat
           </ThreeDButton>
@@ -295,4 +295,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default About;

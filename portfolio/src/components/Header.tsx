@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Github, Instagram, Linkedin, Mail, Menu, Twitter, X } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, Twitter, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -65,7 +65,7 @@ const Header = () => {
     <>
       {/* Desktop Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 mt-3 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } hidden md:block`}
       >        <div
@@ -75,15 +75,15 @@ const Header = () => {
               : "bg-transparent"
           }`}
         >
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex gap-0 flex-col items-center justify-between h-24">
+          <div className="max-w-7xl mx-auto px-6 pt-3  lg:px-8">
+            <div className="flex gap-0 flex-col items-center justify-between h-15">
               {/* Top row with Logo and Navigation */}
               <div className="flex items-center justify-between w-full h-12 ">
                 {/* Logo */}
                 <div className="flex-shrink-0">
                   <Link
                     href="#home"
-                    className="flex items-center font-ms text-2xl font-bold text-primary"
+                    className="flex items-center font-mulish text-2xl font-bold text-primary"
                   >
                     <Image
                       src="/logo.png"
@@ -92,7 +92,7 @@ const Header = () => {
                       height={50}
                       className="mr-2"
                     />
-                    <span className="text-md"> Afam the chameleony dev</span>
+                    <span className="text-ms"> Afam the chameleony dev</span>
                   </Link>
                 </div>
 
@@ -102,9 +102,9 @@ const Header = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`self-end relative active:scale-95 font-ms text-lg font-regular transition-colors transition-scale duration-200 group ${
+                      className={`self-end relative active:scale-95 font-mulish text-lg font-regular transition-colors transition-scale duration-200 group ${
                         activeSection === item.id 
-                          ? 'text-primary font-semibold' 
+                          ? 'text-primary font-extrabold' 
                           : 'text-text hover:text-primary'
                       }`}
                     >
@@ -119,7 +119,7 @@ const Header = () => {
               </div>
 
               {/* Bottom row with Socials */}
-              <div className="flex justify-end self-end w-auto h-12 bg-primary px-5">
+              {/* <div className="flex justify-end self-end w-auto h-12 bg-primary px-5">
                 <div className="flex space-x-6 self-center">
                   <Link href="mailto:afam.ugwuanyi.u@gmail.com" target="_blank" rel="noopener noreferrer">
                     <Mail className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
@@ -134,7 +134,7 @@ const Header = () => {
                     <Linkedin className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@ const Header = () => {
             />
             <Link
               href="#home"
-              className="font-ms text-md font-bold text-primary"
+              className="font-mulish text-md font-bold text-primary"
             >
               Afam the chameleony dev
             </Link>
