@@ -1,0 +1,1 @@
+export const roles = ["Fullstack Development", "Data and System Modeling", "DevOps", "CRM"];
