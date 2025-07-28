@@ -65,7 +65,7 @@ const Header = () => {
     <>
       {/* Desktop Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 mt-2 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-50 mt-3 transition-transform duration-300 ease-in-out ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } hidden md:block`}
       >        <div
@@ -76,14 +76,14 @@ const Header = () => {
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex gap-0 flex-col items-center justify-between h-20">
+            <div className="flex gap-0 flex-col items-center justify-between h-24">
               {/* Top row with Logo and Navigation */}
               <div className="flex items-center justify-between w-full h-12 ">
                 {/* Logo */}
                 <div className="flex-shrink-0">
                   <Link
                     href="#home"
-                    className="flex items-center font-medieval-sharp text-2xl font-bold text-primary"
+                    className="flex items-center font-ms text-2xl font-bold text-primary"
                   >
                     <Image
                       src="/logo.png"
@@ -102,9 +102,9 @@ const Header = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`self-end relative font-medieval-sharp text-lg font-bold transition-colors duration-200 font-medium group ${
+                      className={`self-end relative active:scale-95 font-ms text-lg font-regular transition-colors transition-scale duration-200 group ${
                         activeSection === item.id 
-                          ? 'text-text' 
+                          ? 'text-primary font-semibold' 
                           : 'text-text hover:text-primary'
                       }`}
                     >
@@ -112,16 +112,14 @@ const Header = () => {
                       {/* Hover underline */}
                       <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
                       {/* Active underline */}
-                      {activeSection === item.id && (
-                        <span className="absolute left-0 bottom-0 w-full h-0.5 bg-primary"></span>
-                      )}
+
                     </Link>
                   ))}
                 </nav>
               </div>
 
               {/* Bottom row with Socials */}
-              <div className="flex justify-end self-end w-auto h-10 bg-primary px-5 rounded-tl-3xl rounded-br-3xl ">
+              <div className="flex justify-end self-end w-auto h-12 bg-primary px-5">
                 <div className="flex space-x-6 self-center">
                   <Link href="mailto:afam.ugwuanyi.u@gmail.com" target="_blank" rel="noopener noreferrer">
                     <Mail className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
@@ -180,7 +178,7 @@ const Header = () => {
             />
             <Link
               href="#home"
-              className="font-medieval-sharp text-md font-bold text-primary"
+              className="font-ms text-md font-bold text-primary"
             >
               Afam the chameleony dev
             </Link>
