@@ -1,24 +1,21 @@
 export const roles = [
   "Fullstack Development",
-  "Data and System Modeling",
-  "DevOps",
-  "CRM",
-  "Web Hosting",
+  "Database Systems",
+  "Systems Design & Architecture",
+  "Teaching & Education",
 ];
+
 export const technologies = [
   "Next.js",
-  "Vue.js",
-  "TypeScript",
-  "Tailwind CSS",
   "Django",
-  "FastAPI",
-  "Sanic",
-  "Streamlit",
-  "Nest JS",
-  "Express",
   "Rust",
-  "Axum",
+  "Tailwind CSS",
+  "Node.js",
+  "Socket.io/WebSockets",
+  "Fabric.js + Yjs",
+  "Apache Kafka",
   "Docker",
+  "MongoDB + Redis",
 ];
 
 export const experiences = {

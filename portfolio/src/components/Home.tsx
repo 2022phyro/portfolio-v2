@@ -2,27 +2,37 @@
 
 import Image from "next/image";
 import ThreeDButton from "./button";
+import ClayButton from "./clay";
+import GlassButton from "./clay";
+import { TextGradient } from "./text";
 
 const Home = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen h-full flex sm:space-x-10 items-center justify-evenly p-30 sm:px-10 overflow-hidden"
+      className="font-ml relative min-h-screen h-full text-text-primary flex sm:space-x-10 items-center justify-evenly p-30 sm:px-10 overflow-hidden"
     >
       {/* Background circular gradients */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-secondary/20 to-accent rounded-full blur-3xl"></div>
         <div className="absolute bottom-32 right-20 w-56 h-56 bg-gradient-to-r from-primary/15 to-secondary rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-gradient-to-r from-accent/15 to-primary/10 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 left-1/4 w-48 h-48 bg-gradient-to-r from-secondary/15 to-primary/50 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-3/4 w-32 h-32 bg-gradient-to-r from-accent/15 to-primary/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 left-2/4 w-48 h-48 bg-gradient-to-r from-secondary/15 to-primary/50 rounded-full blur-3xl"></div>
         <div className="absolute top-2/3 left-10 w-24 h-24 bg-gradient-to-r from-primary/20 to-accent/10 rounded-full blur-2xl"></div>
       </div>
 
       <div className="relative z-10 font-mulish space-y-5 h-full">
-        <span className="text-lg">Hi There </span>
-        <span className="text-3xl">,</span>
+        <h2 className="shead">
+          <TextGradient
+            className="font-q"
+            from="from-text-muted"
+            to="to-primary"
+          >
+            /helloworld
+          </TextGradient>
+        </h2>
         <h3 className="text-3xl">I'm Afam Ugwuanyi</h3>
-        <h1 className="text-5xl font-bold">Software Engineer </h1>
+        <h1 className="text-text-primary text-5xl font-q font-bold">Software Engineer </h1>
         <p className="w-120">
           I have an affection for backend engineering with over 2 years
           experience building scalable systems and softwares for both clients
@@ -32,12 +42,12 @@ const Home = () => {
           <ThreeDButton
             className="w-50 h-15"
             leaf="rounded-tr-3xl rounded-bl-3xl"
+            variant="brand"
           >
             View my resume
           </ThreeDButton>
-
           <ThreeDButton
-            variant="brand"
+            variant="secondary"
             leaf="rounded-tl-3xl rounded-br-3xl"
             className="w-50 h-15"
           >

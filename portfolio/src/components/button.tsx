@@ -2,21 +2,45 @@ import { cva, type VariantProps } from "class-variance-authority";
 import clsx from "clsx";
 import React from "react";
 
-const baseGradient = "bg-[linear-gradient(#f5f5f5,#f5f5f5_50%,#fff)]";
-const brandInnerGradient = "bg-[linear-gradient(to_top,#43766c,#a2d6cc)]";
-const brandContentGradient = "bg-[linear-gradient(#43766c,#374d49)]";
-const brandHoverContentGradient = "bg-[linear-gradient(#2d5016,#1e3a0f)]";
-const innerGradient = "bg-[linear-gradient(to_top,#ececec,#fff)]";
-const contentGradient = "bg-[linear-gradient(#f4f4f4,#fefefe)]";
-const hoverContentGradient = "bg-[linear-gradient(#e2e2e2,#fefefe)]";
+// Gradients for each variant
+const gradients = {
+  default: {
+    inner: "bg-[linear-gradient(to_top,#ececec,#fff)]",
+    content: "bg-[linear-gradient(#f4f4f4,#fefefe)]",
+    hoverContent: "bg-[linear-gradient(#e2e2e2,#fefefe)]",
+    text: "text-primary group-hover:text-primary",
+  },
+  brand: {
+    inner: "bg-[linear-gradient(to_top,#43766c,#a2d6cc)]",
+    content: "bg-[linear-gradient(#43766c,#374d49)]",
+    hoverContent: "bg-[linear-gradient(#2d5016,#1e3a0f)]",
+    text: "text-accent group-hover:text-bg",
+  },
+  accent: {
+    inner: "bg-[linear-gradient(to_top,#fbbf24,#e3be96)]",
+    content: "bg-[linear-gradient(#f59e42,#fbbf24)]",
+    hoverContent: "bg-[linear-gradient(#f59e42,#fbbf24_80%)]",
+    text: "text-white group-hover:text-yellow-100",
+  },
+  secondary: {
+    inner: "bg-[linear-gradient(to_top,#e0e7ef,#cfd8dc)]",
+    content: "bg-[linear-gradient(#b0bec5,#eceff1)]",
+    hoverContent: "bg-[linear-gradient(#b0bec5,#cfd8dc)]",
+    text: "text-secondary-foreground ",
+  },
+};
+
+const baseGradient = "bg-transparent";
 
 const buttonStyles = cva(
-  "group inline-flex transition-all duration-300 overflow-visible p-1",
+  "group inline-flex transition-all duration-300 overflow-visible p-1 bg-red-500",
   {
     variants: {
       variant: {
-        default: `bg-[${baseGradient}]`,
-        brand: `bg-[${baseGradient}]`,
+        default: baseGradient,
+        brand: baseGradient,
+        accent: baseGradient,
+        secondary: baseGradient,
       },
     },
     defaultVariants: {
@@ -32,33 +56,34 @@ interface Props
 }
 
 const ThreeDButton = React.forwardRef<HTMLButtonElement, Props>(
-  ({ variant, leaf, className, children, ...props }, ref) => {
+  ({ variant = "default", leaf, className, children, ...props }, ref) => {
     const borderRadius = leaf || "";
-    const innerGradientValue = variant === "brand" ? brandInnerGradient : innerGradient;
-    const contentGradientValue = variant === "brand" ? brandContentGradient : contentGradient;
-    const hoverContentGradientValue = variant === "brand" ? brandHoverContentGradient : hoverContentGradient;
+    const { inner, content, hoverContent, text } = gradients[variant as keyof typeof gradients];
+
     return (
       <button
         ref={ref}
         className={clsx(buttonStyles({ variant }), className)}
         {...props}
       >
-          <div
+        <div
           className={clsx(
-            `w-full h-full overflow-hidden p-1 transition-shadow duration-300`,
+            "w-full h-full overflow-hidden p-1 transition-shadow duration-300 bg-transparent",
             borderRadius,
-            `shadow-[0_0_1px_rgba(0,0,0,0.07),0_0_1px_rgba(0,0,0,0.05),0_3px_3px_rgba(0,0,0,0.25),0_1px_3px_rgba(0,0,0,0.12)]`,
-            `${innerGradientValue}  `,
-            `group-hover:cursor-pointer`,
-            `group-active:shadow-none`
+            "shadow-[0_0_1px_rgba(0,0,0,0.07),0_0_1px_rgba(0,0,0,0.05),0_3px_3px_rgba(0,0,0,0.25),0_1px_3px_rgba(0,0,0,0.12)]",
+            inner,
+            "group-hover:cursor-pointer",
+            "group-active:shadow-none"
           )}
-        ><div
+        >
+          <div
             className={clsx(
-              `w-full h-full inline-flex items-center justify-center overflow-hidden transition-colors duration-200`,
+              "w-full h-full inline-flex items-center justify-center overflow-hidden transition-colors duration-200",
               borderRadius,
-              `${contentGradientValue} group-active:${hoverContentGradientValue}`,
-              variant === "brand" ? `text-accent group-hover:text-bg` : `text-primary group-hover:text-primary`,
-              `px-4 py-2 font-medium text-md`
+              content,
+              `group-active:${hoverContent}`,
+              text,
+              "px-4 py-2 font-medium text-md"
             )}
           >
             {children}

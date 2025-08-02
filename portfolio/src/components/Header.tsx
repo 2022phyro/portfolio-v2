@@ -5,41 +5,35 @@ import { Github, Linkedin, Mail, Menu, Twitter, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
+const navItems = [
+  { name: "Home", href: "#home", id: "home" },
+  { name: "About", href: "#about", id: "about" },
+  { name: "Experience", href: "#experience", id: "experience" },
+  { name: "Projects", href: "#projects", id: "projects" },
+  { name: "Contact", href: "#contact", id: "contact" },
+];
+
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const navItems = [
-    { name: "Home", href: "#home", id: "home" },
-    { name: "About", href: "#about", id: "about" },
-    { name: "Experience", href: "#experience", id: "experience" },
-    { name: "Projects", href: "#projects", id: "projects" },
-    { name: "Contact", href: "#contact", id: "contact" },
-  ];  useEffect(() => {
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 50);
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
+      setIsVisible(currentScrollY < lastScrollY || currentScrollY < 100);
       setLastScrollY(currentScrollY);
     };
 
-    // Function to update active section based on scroll position
     const updateActiveSection = () => {
-      const sections = navItems.map(item => item.id);
       const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const section = document.getElementById(navItems[i].id);
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
+          setActiveSection(navItems[i].id);
           break;
         }
       }
@@ -47,193 +41,184 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("scroll", updateActiveSection, { passive: true });
-    
-    // Initial check
     updateActiveSection();
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", updateActiveSection);
     };
   }, [lastScrollY]);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
+``
+  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   return (
     <>
-      {/* Desktop Header */}
+      {/* Desktop & Mobile Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
-          isVisible ? "translate-y-0" : "-translate-y-full"
-        } hidden md:block`}
-      >        <div
+          isVisible ? "translate-y-0" : "md:-translate-y-full translate-y-0"
+        }`}
+      >
+        <div
           className={`transition-all duration-300 ease-in-out ${
             isScrolled
-              ? "bg-background/80 backdrop-blur-md border-b border-primary/20"
+              ? "bg-surface/90 backdrop-blur-lg shadow-[0_8px_32px_rgba(176,217,176,0.3)] border-b border-border/30"
               : "bg-transparent"
           }`}
+          style={{
+            background: isScrolled 
+              ? 'linear-gradient(135deg, rgba(200, 230, 201, 0.8) 0% rgba(200, 230, 201, 0.8) 100%)'
+              : 'transparent'
+          }}
         >
-          <div className="max-w-7xl mx-auto px-6 pt-3  lg:px-8">
-            <div className="flex gap-0 flex-col items-center justify-between h-15">
-              {/* Top row with Logo and Navigation */}
-              <div className="flex items-center justify-between w-full h-12 ">
-                {/* Logo */}
-                <div className="flex-shrink-0">
-                  <Link
-                    href="#home"
-                    className="flex items-center font-mulish text-2xl font-bold text-primary"
-                  >
-                    <Image
-                      src="/logo.png"
-                      alt="Logo"
-                      width={50}
-                      height={50}
-                      className="mr-2"
-                    />
-                    <span className="text-ms"> Afam the chameleony dev</span>
-                  </Link>
-                </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              {/* Logo */}
+              <Link
+                href="#home"
+                className="flex items-center text-2xl font-bold text-primary font-q"
+              >
+                <Image
+                  src="/logo.png"
+                  alt="Logo"
+                  width={40}
+                  height={40}
+                  className="mr-2"
+                />
+                <span className="hidden sm:inline">Afam</span>
+              </Link>
 
-                {/* Desktop Navigation */}
-                <nav className="flex space-x-6">
-                  {navItems.map((item) => (
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex space-x-3">
+                {navItems.map((item) => (
                     <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`self-end relative active:scale-95 font-mulish text-lg font-regular transition-colors transition-scale duration-200 group ${
-                        activeSection === item.id 
-                          ? 'text-primary font-extrabold' 
-                          : 'text-text hover:text-primary'
-                      }`}
+                    key={item.name}
+                    href={item.href}
+                    className={`relative font-q text-lg transition-all duration-200 group px-3 py-1 rounded-tr-3xl rounded-bl-3xl ${
+                      activeSection === item.id
+                      ? "text-primary font-bold lowercase"
+                      : "text-text-muted/80 hover:text-primary font-medium"
+                    }`}
                     >
-                      {item.name}
-                      {/* Hover underline */}
-                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
-                      {/* Active underline */}
-
+                    {activeSection === item.id && <span>/</span>}
+                    {item.name}
                     </Link>
-                  ))}
-                </nav>
-              </div>
+                ))}
+              </nav>
 
-              {/* Bottom row with Socials */}
-              {/* <div className="flex justify-end self-end w-auto h-12 bg-primary px-5">
-                <div className="flex space-x-6 self-center">
-                  <Link href="mailto:afam.ugwuanyi.u@gmail.com" target="_blank" rel="noopener noreferrer">
-                    <Mail className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
-                  </Link>
-                  <Link href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-                    <Github className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
-                  </Link>
-                  <Link href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
-                    <Twitter className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
-                  </Link>
-                  <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="w-6 h-6 text-accent hover:text-accent transition-colors duration-200" />
-                  </Link>
-                </div>
-              </div> */}
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={toggleMobileMenu}
+                className="md:hidden p-2 rounded-full text-primary hover:text-primary/80 transition-all duration-200 hover:bg-surface/30 hover:shadow-[2px_2px_8px_rgba(176,217,176,0.3),-2px_-2px_8px_rgba(255,255,255,0.8)]"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Button */}
-      <button
-        onClick={toggleMobileMenu}
-        className={`fixed top-4 right-4 z-50 p-2 rounded-lg transition-all duration-300 ease-in-out md:hidden ${
-          isVisible ? "translate-y-0" : "-translate-y-full"
-        } ${
-          isScrolled
-            ? "bg-primary text-white"
-            : "bg-primary/80 text-white backdrop-blur-sm"
-        }`}
-        aria-label="Toggle menu"
-      >
-        {isMobileMenuOpen ? (
-          <X className="w-6 h-6" />
-        ) : (
-          <Menu className="w-6 h-6" />
-        )}
-      </button>
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50 md:hidden backdrop-blur-sm"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
 
       {/* Mobile Side Navigation */}
       <div
-        className={`fixed inset-y-0 left-0 z-40 w-64 bg-bg transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-80 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
+        style={{
+          background: 'linear-gradient(135deg, rgba(215, 204, 200, 0.95) 0%, rgba(200, 230, 201, 0.9) 100%)',
+          backdropFilter: 'blur(20px)',
+          boxShadow: '8px 0 32px rgba(176, 217, 176, 0.3)'
+        }}
       >
         <div className="flex flex-col h-full">
-          {" "}
-          {/* Mobile Logo */}
-          <div className="flex items-center justify-start h-16 px-6 border-b border-primary/20">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={50}
-              height={50}
-              className="mr-2"
-            />
+          {/* Mobile Header */}
+          <div className="flex items-center justify-between h-16 px-6 border-b border-border/30">
             <Link
               href="#home"
-              className="font-mulish text-md font-bold text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center font-q text-xl font-bold text-primary"
             >
-              Afam the chameleony dev
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={32}
+                height={32}
+                className="mr-2"
+              />
+              Afam
             </Link>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 rounded-full text-text-muted hover:text-primary transition-all duration-200 hover:bg-surface/50"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
+
           {/* Mobile Navigation */}
           <nav className="flex-1 px-6 py-8">
-            {" "}            <div className="flex flex-col space-y-6">
+            <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`relative font-body text-lg font-medium transition-colors duration-200 group ${
-                    activeSection === item.id 
-                      ? 'text-primary' 
-                      : 'text-text hover:text-primary'
+                  className={`relative font-q text-lg font-semibold transition-all duration-200 px-4 py-3 rounded-2xl ${
+                    activeSection === item.id
+                      ? "text-text-primary shadow-[inset_3px_3px_8px_rgba(176,217,176,0.4),inset_-3px_-3px_8px_rgba(255,255,255,0.9)]"
+                      : "text-text-muted hover:text-text-primary hover:shadow-[2px_2px_8px_rgba(176,217,176,0.3),-2px_-2px_8px_rgba(255,255,255,0.8)]"
                   }`}
+                  style={{
+                    background: activeSection === item.id
+                      ? 'linear-gradient(135deg, rgba(215, 204, 200, 0.6) 0%, rgba(200, 230, 201, 0.4) 100%)'
+                      : undefined
+                  }}
                 >
                   {item.name}
-                  {/* Mobile hover underline */}
-                  <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
-                  {/* Mobile active underline */}
-                  {activeSection === item.id && (
-                    <span className="absolute left-0 bottom-0 w-full h-0.5 bg-primary"></span>
-                  )}
                 </Link>
               ))}
             </div>
-          </nav>          {/* Mobile Footer */}
-          <div className="px-6 py-4 border-t border-primary/20">
-            <p className="font-body text-text-alt text-sm mb-4">© 2025 Portfolio</p>
-            {/* Mobile Socials */}
-            <div className="flex space-x-4 justify-center">
-              <Link href="mailto:afam.ugwuanyi.u@gmail.com" target="_blank" rel="noopener noreferrer">
-                <Mail className="w-6 h-6 text-text hover:text-primary transition-colors duration-200" />
-              </Link>
-              <Link href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-                <Github className="w-6 h-6 text-text hover:text-primary transition-colors duration-200" />
-              </Link>
-              <Link href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
-                <Twitter className="w-6 h-6 text-text hover:text-primary transition-colors duration-200" />
-              </Link>
-              <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="w-6 h-6 text-text hover:text-primary transition-colors duration-200" />
-              </Link>
+          </nav>
+
+          {/* Mobile Footer with Social Icons */}
+          <div className="px-6 py-6 border-t border-border/30">
+            <div className="flex space-x-4 justify-center mb-4">
+              {[
+                { href: "mailto:afam.ugwuanyi.u@gmail.com", icon: Mail },
+                { href: "https://github.com/yourusername", icon: Github },
+                { href: "https://twitter.com/yourusername", icon: Twitter },
+                { href: "https://linkedin.com/in/yourusername", icon: Linkedin }
+              ].map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <Link 
+                    key={index}
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full text-text-muted hover:text-primary transition-all duration-200 hover:shadow-[2px_2px_8px_rgba(176,217,176,0.3),-2px_-2px_8px_rgba(255,255,255,0.8)]"
+                  >
+                    <Icon className="w-6 h-6" />
+                  </Link>
+                );
+              })}
             </div>
+            <p className="font-ml text-text-muted text-sm text-center">© 2025 Portfolio</p>
           </div>
         </div>
-      </div>      {/* Mobile Overlay */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/50 md:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
+      </div>
     </>
   );
 };

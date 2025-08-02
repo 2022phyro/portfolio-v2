@@ -6,54 +6,65 @@ html {
 }
 
 :root {
-  --font-geist-sans: var(--geist-sans);
-  --font-geist-mono: var(--geist-mono);
-  --font-mulish: var(--mulish);
-  --font-ms: var(--montserrat-alternates);
-  --font-medieval-sharp: var(--medieval-sharp);
+  --font-ml: var(--mulish);
+  --font-cg: var(--cormorant-garamond);
+  --font-q: var(--quicksand);
+  /* ==== Core Branding ==== */
+  --color-primary: #43766c; /* Calm Pine (Your original primary) */
+  --color-secondary: #a2d6cc; /* Aqua Mint (Your palette) */
+  --color-accent: #f8fae5; /* Soft Off-White Accent (Yours) */
 
+  /* ==== UI Surface & Background ==== */
+  --color-background: #f1f8e9; /* Dewy Greenish White (Nature Clay) */
+  --color-surface: #d7ccc8; /* Clay Taupe (Warm earthy surface) */
+  --color-surface-alt: #f5f5f5; /* Your light grey fallback */
+  --color-surface-muted: #c8e6c9; /* Soft Green Highlight (for blobs) */
 
-  /* Branding */
-  --primary: #43766c;
-  --secondary: #a2d6cc;
-  --pri-dark: #43766e;
-  --accent: #f8fae5;
-  --bg: #f5f5f5;
-  --bg-alt: #f4f5f2;
+  /* ==== Shadows & Effects ==== */
+  --color-shadow: #b0d9b0; /* Clay shadow */
+  --color-highlight: #ffffff; /* Inner highlight for claymorphism */
 
-  /* Text */
-  --text: #0b2f28;
-  --text-alt: #374d49;
+  /* ==== Text ==== */
+  --color-text-primary: #0b2f28; /* Deep Forest (Your text) */
+  --color-text-muted: #374d49; /* Gray-Green (Your alt text) */
+  --color-text-accent: #2e7d32; /* Verdant Text Highlight (Clay palette) */
 
-  /* Font */
-  --heading: var(--font-ms);
-  --body: var(--font-mulish);
-  --card-heading: var(--mulish);
-  --style: var(--font-medieval-sharp);
+  /* ==== Optional Enhancers ==== */
+  --color-sky: #b3e5fc; /* Sky Blue (Optional accent) */
+  --color-border: #a5d6a7; /* Spring Leaf for borders */
 
-  --background: var(--bg);
-  --foreground: var(--text);
+  /* ==== Semantic Roles (optional) ==== */
+  --color-success: #66bb6a;
+  --color-info: #4dd0e1;
+  --color-warning: #ffee58;
+  --color-error: #ef5350;
 }
 
 @theme inline {
   /* Colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-pri-dark: var(--pri-dark);
-  --color-accent: var(--accent);
-  --color-bg: var(--bg);
-  --color-bg-alt: var(--bg-alt);
-  --color-text: var(--text);
-  --color-text-alt: var(--text-alt);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-shadow: var(--color-shadow);
+  --color-highlight: var(--color-highlight);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-accent: var(--color-text-accent);
+  --color-sky: var(--color-sky);
+  --color-border: var(--color-border);
+  --color-success: var(--color-success);
+  --color-info: var(--color-info);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
 
   /* Fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-mulish: var(--font-mulish);
-  --font-ms: var(--font-ms);
-  --font-medieval-sharp: var(--font-medieval-sharp);
+  --font-ml: var(--font-mulish);
+  --font-q: var(--font-quicksand);
+  --font-cg: var(--font-cormorant-garamond);
   --font-heading: var(--heading);
   --font-body: var(--body);
   --font-card-heading: var(--card-heading);
@@ -71,4 +82,18 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+button {
+  cursor: pointer;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--quicksand);
+}
+
+.shead {
+  font-family:  "font-q";
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 3rem;
 }
