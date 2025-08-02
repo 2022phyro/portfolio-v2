@@ -11,8 +11,8 @@ const gradients = {
     text: "text-primary group-hover:text-primary",
   },
   brand: {
-    inner: "bg-[linear-gradient(to_top,#43766c,#a2d6cc)]",
-    content: "bg-[linear-gradient(#43766c,#374d49)]",
+    inner: "bg-[linear-gradient(to_top,#43766c,#dce8e6)]",
+    content: "bg-[linear-gradient(135deg,#43766c_0%,#a2d6cc_100%)]",
     hoverContent: "bg-[linear-gradient(#2d5016,#1e3a0f)]",
     text: "text-accent group-hover:text-bg",
   },
