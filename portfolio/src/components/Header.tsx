@@ -48,7 +48,7 @@ const Header = () => {
       window.removeEventListener("scroll", updateActiveSection);
     };
   }, [lastScrollY]);
-``
+  ``;
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   return (
     <>
@@ -65,9 +65,9 @@ const Header = () => {
               : "bg-transparent"
           }`}
           style={{
-            background: isScrolled 
-              ? 'linear-gradient(135deg, rgba(200, 230, 201, 0.8) 0% rgba(200, 230, 201, 0.8) 100%)'
-              : 'transparent'
+            background: isScrolled
+              ? "linear-gradient(135deg, rgba(200, 230, 201, 0.8) 0% rgba(200, 230, 201, 0.8) 100%)"
+              : "transparent",
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,35 +86,31 @@ const Header = () => {
                 />
                 <span className="hidden sm:inline">Afam</span>
               </Link>
-
               {/* Desktop Navigation */}
               <nav className="hidden md:flex">
                 {navItems.map((item) => (
-                    <Link
+                  <Link
                     key={item.name}
                     href={item.href}
                     className={`relative font-q text-lg transition-all duration-200 group px-3 py-1 ${
                       activeSection === item.id
-                      ? "text-primary font-bold lowercase"
-                      : "text-text-muted/80 hover:text-primary font-medium"
+                        ? "text-primary font-bold lowercase"
+                        : "text-text-muted/80 hover:text-primary font-medium"
                     }`}
-                    >
+                  >
                     {activeSection === item.id && <span>/</span>}
                     {item.name}
-                    </Link>
+                  </Link>
                 ))}
               </nav>
-
-
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMobileMenu}
-                className="md:hidden p-2 rounded-full text-primary hover:text-primary/80 transition-all duration-200 hover:bg-surface/30 hover:shadow-[2px_2px_8px_rgba(176,217,176,0.3),-2px_-2px_8px_rgba(255,255,255,0.8)]"
+                className="md:hidden p-2 rounded-full text-primary hover:text-primary/80 transition-all duration-200"
                 aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
+                
+                {!isMobileMenuOpen && (
                   <Menu className="w-6 h-6" />
                 )}
               </button>
@@ -122,7 +118,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
@@ -130,17 +125,11 @@ const Header = () => {
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
-
       {/* Mobile Side Navigation */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-80 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-80 transform transition-transform duration-300 ease-in-out md:hidden bg-surface border-r border-border/30 ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{
-          background: 'linear-gradient(135deg, rgba(215, 204, 200, 0.95) 0%, rgba(200, 230, 201, 0.9) 100%)',
-          backdropFilter: 'blur(20px)',
-          boxShadow: '8px 0 32px rgba(176, 217, 176, 0.3)'
-        }}
       >
         <div className="flex flex-col h-full">
           {/* Mobile Header */}
@@ -159,63 +148,57 @@ const Header = () => {
               />
               Afam
             </Link>
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 rounded-full text-text-muted hover:text-primary transition-all duration-200 hover:bg-surface/50"
-            >
-              <X className="w-5 h-5" />
-            </button>
           </div>
-
           {/* Mobile Navigation */}
           <nav className="flex-1 px-6 py-8">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-6">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`relative font-q text-lg font-semibold transition-all duration-200 px-4 py-3 rounded-2xl ${
+                  className={`relative font-q text-xl transition-all duration-200 ${
                     activeSection === item.id
-                      ? "text-text-primary shadow-[inset_3px_3px_8px_rgba(176,217,176,0.4),inset_-3px_-3px_8px_rgba(255,255,255,0.9)]"
-                      : "text-text-muted hover:text-text-primary hover:shadow-[2px_2px_8px_rgba(176,217,176,0.3),-2px_-2px_8px_rgba(255,255,255,0.8)]"
+                      ? "text-primary font-bold"
+                      : "text-text-muted/80 hover:text-primary font-medium"
                   }`}
-                  style={{
-                    background: activeSection === item.id
-                      ? 'linear-gradient(135deg, rgba(215, 204, 200, 0.6) 0%, rgba(200, 230, 201, 0.4) 100%)'
-                      : undefined
-                  }}
                 >
+                  {activeSection === item.id && <span className="mr-1">/</span>}
                   {item.name}
                 </Link>
               ))}
             </div>
           </nav>
-
           {/* Mobile Footer with Social Icons */}
           <div className="px-6 py-6 border-t border-border/30">
             <div className="flex space-x-4 justify-center mb-4">
+              
               {[
                 { href: "mailto:afam.ugwuanyi.u@gmail.com", icon: Mail },
                 { href: "https://github.com/yourusername", icon: Github },
                 { href: "https://twitter.com/yourusername", icon: Twitter },
-                { href: "https://linkedin.com/in/yourusername", icon: Linkedin }
+                {
+                  href: "https://linkedin.com/in/yourusername",
+                  icon: Linkedin,
+                },
               ].map((social, index) => {
                 const Icon = social.icon;
                 return (
-                  <Link 
+                  <Link
                     key={index}
-                    href={social.href} 
-                    target="_blank" 
+                    href={social.href}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-full text-text-muted hover:text-primary transition-all duration-200 hover:shadow-[2px_2px_8px_rgba(176,217,176,0.3),-2px_-2px_8px_rgba(255,255,255,0.8)]"
+                    className="p-3 rounded-full text-text-muted hover:text-primary transition-all duration-200"
                   >
                     <Icon className="w-6 h-6" />
                   </Link>
                 );
               })}
             </div>
-            <p className="font-ml text-text-muted text-sm text-center">© 2025 Portfolio</p>
+            <p className="font-ml text-text-muted text-sm text-center">
+              © 2025 Portfolio
+            </p>
           </div>
         </div>
       </div>
