@@ -6,11 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navItems = [
-  { name: "Home", href: "#home", id: "home" },
-  { name: "About", href: "#about", id: "about" },
-  { name: "Experience", href: "#experience", id: "experience" },
-  { name: "Projects", href: "#projects", id: "projects" },
-  { name: "Contact", href: "#contact", id: "contact" },
+  { name: "home", href: "#home", id: "home" },
+  { name: "about", href: "#about", id: "about" },
+  { name: "featured", href: "#featured", id: "featured" },
+  { name: "timeline", href: "#timeline", id: "timeline" },
+  { name: "projects", href: "#projects", id: "projects" },
+  { name: "contact", href: "#contact", id: "contact" },
 ];
 
 const Header = () => {

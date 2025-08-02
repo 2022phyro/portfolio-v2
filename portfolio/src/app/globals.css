@@ -87,13 +87,118 @@ button {
   cursor: pointer;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--quicksand);
 }
 
 .shead {
-  font-family:  "font-q";
+  font-family: "font-q";
   font-weight: bold;
   margin-top: 1rem;
-  font-size: 3rem;
+  font-size: 2.3rem;
+}
+
+/* ==== Utility Classes ==== */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+.leaf-l {
+  border-top-right-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+}
+
+.leaf-l-alt {
+  border-bottom-right-radius: 5rem;
+  border-top-left-radius: 5rem;
+}
+
+/* ==== Timeline Animations ==== */
+@keyframes timelineGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--color-primary);
+  }
+  70% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* Scroll-triggered animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-dot-pulse {
+  animation: dotPulse 2s infinite;
 }

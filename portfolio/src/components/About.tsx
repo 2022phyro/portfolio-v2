@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ThreeDButton from "./button";
+import ThreeDButton from "./elements/button";
 import { roles, technologies } from "@/data";
 import {
   Code2,
@@ -33,8 +33,8 @@ const About = () => {
         <h2 className="shead">
           <TextGradient
             className="font-q"
-            from="from-text-muted"
-            to="to-primary"
+            from="from-primary"
+            to="to-text-accent"
           >
             /about
           </TextGradient>

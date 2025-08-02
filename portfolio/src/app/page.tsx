@@ -1,4 +1,6 @@
-import { Experience, About, Header, Home } from "@/components";
+import { Tree, About, Header, Home, Featured } from "@/components";
+import ExperienceTimeline from "@/components/Timeline";
+import { experiences, roles } from "@/data";
 
 export default function Portfolio() {
   return (
@@ -6,7 +8,8 @@ export default function Portfolio() {
       <Header />
       <Home/>
       <About/>
-      <Experience />
+      {/* <Featured/> */}
+      <ExperienceTimeline experiences={experiences} />
     </>
   );
 }

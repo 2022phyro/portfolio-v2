@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ThreeDButton from "./button";
-import ClayButton from "./clay";
-import GlassButton from "./clay";
+import ThreeDButton from "./elements/button";
 import { TextGradient } from "./text";
 
 const Home = () => {
@@ -25,8 +23,8 @@ const Home = () => {
         <h2 className="shead">
           <TextGradient
             className="font-q"
-            from="from-text-muted"
-            to="to-primary"
+            from="from-primary"
+            to="to-text-accent"
           >
             /helloworld
           </TextGradient>

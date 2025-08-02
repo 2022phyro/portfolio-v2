@@ -28,14 +28,16 @@ export const experiences = {
       location: "Remote",
       description:
         "Spearheaded backend transformation and real-time infrastructure enhancements for the Keenchess chess platform.",
-      bulletPoints: [
-        "Reorganized the codebase into a microservices architecture, reducing latency by 30%.",
-        "Integrated asynchronous message queues for faster game communication.",
-        "Developed JWT-based authentication with asymmetric key pairs for enhanced security.",
-        "Implemented CI/CD pipelines, cutting deployment time by 40%.",
-        "Designed inter-database relationships, reducing storage by 20%.",
-        "Built low-latency chess logic and tournament systems using Socket.io and Apache Kafka.",
-        "Created a custom report ticketing system, cutting production costs by 15%.",
+      summary:
+        "Rebuilt Keenchess’s backend into scalable microservices, integrated secure JWT auth, and enabled real-time gameplay with Kafka and Socket.IO, significantly improving performance and deployment speed.",
+      tools: [
+        "Node.js",
+        "Redis",
+        "PostgreSQL",
+        "Socket.IO",
+        "Kafka",
+        "Docker",
+        "CI/CD",
       ],
     },
   ],
@@ -45,18 +47,20 @@ export const experiences = {
       role: "Software Engineer",
       start: "January 2025",
       end: "Present",
-      site: "https://art.metamuse.onlin", // Replace with project or company URL if available
+      site: "https://art.metamuse.onlin",
       location: "Remote",
       description:
         "Led the development of an art collaborative NFT platform (Metamuse) on the Sui blockchain.",
-      bulletPoints: [
-        "Built a real-time collaborative canvas using Fabric.js, Y.js, and WebSockets with ~150ms sync latency.",
-        "Created backend services for messaging, notifications, auth, and CRDT syncing.",
-        "Integrated Sui blockchain smart contracts for minting and ownership verification.",
-        "Reduced blockchain query load by 90% through caching strategies.",
-        "Developed high-performance REST APIs for NFT marketplace and canvas features.",
-        "Configured and deployed a cost-efficient cloud VPS stack (MongoDB, Redis, CI/CD, SSL, monitoring).",
-        "Scaled system to handle ~10k concurrent users with optimized Redis and WebSocket architecture.",
+      summary:
+        "Built a highly responsive collaborative NFT canvas with Fabric.js and Y.js, integrated Sui blockchain smart contracts, and scaled infrastructure for 10k+ users using Redis and optimized WebSockets.",
+      tools: [
+        "Fabric.js",
+        "Yjs",
+        "WebSockets",
+        "MongoDB",
+        "Redis",
+        "Sui Blockchain",
+        "Node.js",
       ],
     },
   ],
@@ -70,12 +74,16 @@ export const experiences = {
       location: "Remote",
       description:
         "Worked on cost-saving infrastructure and business automation tools.",
-      bulletPoints: [
-        "Built a custom web push notification system using Node.js, eliminating FCM dependency.",
-        "Digitized records for a car parts firm with a CRM app, improving planning by 40%.",
-        "Integrated real-time analytics dashboards for business reporting.",
-        "Used APIFlask to improve API productivity and reduce latency by 30%.",
-        "Collaborated on scalable database designs and uptime-focused backend systems.",
+      summary:
+        "Engineered lightweight backend systems with custom push notifications, internal dashboards, and API-first designs for small businesses, streamlining operations and enhancing data reporting.",
+      tools: [
+        "Node.js",
+        "APIFlask",
+        "MongoDB",
+        "React",
+        "Chart.js",
+        "Web Push",
+        "Tailwind CSS",
       ],
     },
   ],
@@ -89,14 +97,17 @@ export const experiences = {
       location: "Port Harcourt",
       description:
         "Educated beginner-to-intermediate learners in Python and web development.",
-      bulletPoints: [
-        "Led interactive project-based sessions, increasing retention and engagement by 25%.",
-        "Organized and judged short-format student hackathons.",
-        "Used multimedia tools and real-world use cases to narrow knowledge gaps by 40%.",
+      summary:
+        "Designed and delivered engaging Python and web development lessons, organizing hands-on hackathons and real-world projects to improve learning outcomes.",
+      tools: [
+        "Python",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "GitHub",
+        "VS Code",
+        "Replit",
       ],
     },
   ],
-
-//   "InternPulse": [],
 };
-
