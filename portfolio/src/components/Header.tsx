@@ -10,8 +10,7 @@ const navItems = [
   { name: "about", href: "#about", id: "about" },
   { name: "featured", href: "#featured", id: "featured" },
   { name: "timeline", href: "#timeline", id: "timeline" },
-  { name: "projects", href: "#projects", id: "projects" },
-  { name: "contact", href: "#contact", id: "contact" },
+  { name: "connect", href: "#connect", id: "connect" },
 ];
 
 const Header = () => {
@@ -89,12 +88,12 @@ const Header = () => {
               </Link>
 
               {/* Desktop Navigation */}
-              <nav className="hidden md:flex space-x-3">
+              <nav className="hidden md:flex">
                 {navItems.map((item) => (
                     <Link
                     key={item.name}
                     href={item.href}
-                    className={`relative font-q text-lg transition-all duration-200 group px-3 py-1 rounded-tr-3xl rounded-bl-3xl ${
+                    className={`relative font-q text-lg transition-all duration-200 group px-3 py-1 ${
                       activeSection === item.id
                       ? "text-primary font-bold lowercase"
                       : "text-text-muted/80 hover:text-primary font-medium"
