@@ -27,7 +27,7 @@ const gradients = {
     inner: "bg-[linear-gradient(to_top,#e0e7ef,#cfd8dc)]",
     content: "bg-[linear-gradient(#b0bec5,#eceff1)]",
     hoverContent: "bg-[linear-gradient(#b0bec5,#cfd8dc)]",
-    text: "text-secondary-foreground ",
+    text: "text-secondary-foreground  dark:text-surface-alt",
   },
 };
 
