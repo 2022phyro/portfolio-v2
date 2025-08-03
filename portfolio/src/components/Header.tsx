@@ -19,7 +19,6 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -48,6 +47,20 @@ const Header = () => {
       window.removeEventListener("scroll", updateActiveSection);
     };
   }, [lastScrollY]);
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
   ``;
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   return (
@@ -71,8 +84,7 @@ const Header = () => {
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              {/* Logo */}
+            <div className="flex items-center justify-between h-16">              {/* Logo */}
               <Link
                 href="#home"
                 className="flex items-center text-2xl font-bold text-primary font-q"
@@ -80,11 +92,11 @@ const Header = () => {
                 <Image
                   src="/logo.png"
                   alt="Logo"
-                  width={40}
-                  height={40}
+                  width={50}
+                  height={50}
                   className="mr-2"
                 />
-                <span className="hidden sm:inline">Afam</span>
+                <span className=" hidden sm:inline">Afam</span>
               </Link>
               {/* Desktop Navigation */}
               <nav className="hidden md:flex">
@@ -111,7 +123,7 @@ const Header = () => {
               >
                 
                 {!isMobileMenuOpen && (
-                  <Menu className="w-6 h-6" />
+                  <Menu size={32}/>
                 )}
               </button>
             </div>
@@ -131,23 +143,29 @@ const Header = () => {
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full">
-          {/* Mobile Header */}
+        <div className="flex flex-col h-full">          {/* Mobile Header */}
           <div className="flex items-center justify-between h-16 px-6 border-b border-border/30">
             <Link
               href="#home"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center font-q text-xl font-bold text-primary"
+              className="flex items-center font-q text-2xl font-bold text-primary"
             >
               <Image
                 src="/logo.png"
                 alt="Logo"
-                width={32}
-                height={32}
+                width={40}
+                height={4}
                 className="mr-2"
               />
               Afam
             </Link>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 rounded-full text-text-muted hover:text-primary transition-all duration-200"
+              aria-label="Close menu"
+            >
+              <X size={32}/>
+            </button>
           </div>
           {/* Mobile Navigation */}
           <nav className="flex-1 px-6 py-8">
