@@ -8,7 +8,7 @@ export default function Portfolio() {
       <Header />
       <Home/>
       <About/>
-      {/* <Featured/> */}
+      <Featured/>
       <ExperienceTimeline experiences={experiences} />
       <Contact />
       <Footer />

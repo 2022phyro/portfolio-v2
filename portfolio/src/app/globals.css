@@ -89,13 +89,20 @@ button {
 
 
 .shead {
-  font-family: "font-q";
   font-weight: bold;
   margin-top: 1rem;
   font-size: 2.3rem;
 }
 
 /* ==== Utility Classes ==== */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -178,6 +185,109 @@ button {
   }
 }
 
+/* Floating leaf animations */
+@keyframes float1 {
+  0% {
+    transform: translateY(-100vh) translateX(10vw) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(15vw) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translateY(-100vh) translateX(80vw) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(75vw) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translateY(-100vh) translateX(30vw) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(25vw) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float4 {
+  0% {
+    transform: translateY(-100vh) translateX(60vw) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(65vw) rotate(-180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float5 {
+  0% {
+    transform: translateY(-100vh) translateX(5vw) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(10vw) rotate(270deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float6 {
+  0% {
+    transform: translateY(-100vh) translateX(90vw) rotate(0deg);
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(85vw) rotate(-270deg);
+    opacity: 0;
+  }
+}
+
 /* Scroll-triggered animation classes */
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
@@ -193,4 +303,418 @@ button {
 
 .animate-dot-pulse {
   animation: dotPulse 2s infinite;
+}
+
+/* Floating leaf animation classes */
+.animate-float-1 {
+  animation: float1 12s infinite linear;
+  animation-delay: 0s;
+}
+
+.animate-float-2 {
+  animation: float2 15s infinite linear;
+  animation-delay: -3s;
+}
+
+.animate-float-3 {
+  animation: float3 18s infinite linear;
+  animation-delay: -6s;
+}
+
+.animate-float-4 {
+  animation: float4 14s infinite linear;
+  animation-delay: -9s;
+}
+
+.animate-float-5 {
+  animation: float5 20s infinite linear;
+  animation-delay: -12s;
+}
+
+.animate-float-6 {
+  animation: float6 16s infinite linear;
+  animation-delay: -15s;
+}
+
+/* Firefly animations */
+@keyframes firefly1 {
+  0% {
+    transform: translateX(10vw) translateY(80vh);
+  }
+  25% {
+    transform: translateX(30vw) translateY(20vh);
+  }
+  50% {
+    transform: translateX(60vw) translateY(60vh);
+  }
+  75% {
+    transform: translateX(20vw) translateY(10vh);
+  }
+  100% {
+    transform: translateX(10vw) translateY(80vh);
+  }
+}
+
+@keyframes firefly2 {
+  0% {
+    transform: translateX(80vw) translateY(30vh);
+  }
+  25% {
+    transform: translateX(40vw) translateY(70vh);
+  }
+  50% {
+    transform: translateX(70vw) translateY(15vh);
+  }
+  75% {
+    transform: translateX(90vw) translateY(50vh);
+  }
+  100% {
+    transform: translateX(80vw) translateY(30vh);
+  }
+}
+
+@keyframes firefly3 {
+  0% {
+    transform: translateX(50vw) translateY(90vh);
+  }
+  25% {
+    transform: translateX(15vw) translateY(40vh);
+  }
+  50% {
+    transform: translateX(85vw) translateY(25vh);
+  }
+  75% {
+    transform: translateX(45vw) translateY(65vh);
+  }
+  100% {
+    transform: translateX(50vw) translateY(90vh);
+  }
+}
+
+@keyframes firefly4 {
+  0% {
+    transform: translateX(25vw) translateY(15vh);
+  }
+  25% {
+    transform: translateX(75vw) translateY(85vh);
+  }
+  50% {
+    transform: translateX(35vw) translateY(45vh);
+  }
+  75% {
+    transform: translateX(65vw) translateY(5vh);
+  }
+  100% {
+    transform: translateX(25vw) translateY(15vh);
+  }
+}
+
+@keyframes firefly5 {
+  0% {
+    transform: translateX(90vw) translateY(70vh);
+  }
+  25% {
+    transform: translateX(20vw) translateY(25vh);
+  }
+  50% {
+    transform: translateX(55vw) translateY(80vh);
+  }
+  75% {
+    transform: translateX(85vw) translateY(35vh);
+  }
+  100% {
+    transform: translateX(90vw) translateY(70vh);
+  }
+}
+
+@keyframes firefly6 {
+  0% {
+    transform: translateX(5vw) translateY(50vh);
+  }
+  25% {
+    transform: translateX(95vw) translateY(10vh);
+  }
+  50% {
+    transform: translateX(40vw) translateY(90vh);
+  }
+  75% {
+    transform: translateX(10vw) translateY(30vh);
+  }
+  100% {
+    transform: translateX(5vw) translateY(50vh);
+  }
+}
+
+.animate-firefly-1 {
+  animation: firefly1 20s infinite ease-in-out;
+}
+
+.animate-firefly-2 {
+  animation: firefly2 25s infinite ease-in-out;
+  animation-delay: -5s;
+}
+
+.animate-firefly-3 {
+  animation: firefly3 30s infinite ease-in-out;
+  animation-delay: -10s;
+}
+
+.animate-firefly-4 {
+  animation: firefly4 22s infinite ease-in-out;
+  animation-delay: -15s;
+}
+
+.animate-firefly-5 {
+  animation: firefly5 28s infinite ease-in-out;
+  animation-delay: -20s;
+}
+
+.animate-firefly-6 {
+  animation: firefly6 24s infinite ease-in-out;
+  animation-delay: -12s;
+}
+
+/* Floating Pollen/Spores Animations */
+@keyframes pollen1 {
+  0% {
+    transform: translate(0, 100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(15vw, -20vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pollen2 {
+  0% {
+    transform: translate(0, 100vh) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.5;
+  }
+  85% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-20vw, -30vh) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pollen3 {
+  0% {
+    transform: translate(0, 100vh) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(10vw, -25vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pollen4 {
+  0% {
+    transform: translate(0, 100vh) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.4;
+  }
+  88% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-10vw, -35vh) rotate(-180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pollen5 {
+  0% {
+    transform: translate(0, 100vh) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.5;
+  }
+  92% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(25vw, -15vh) rotate(270deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pollen6 {
+  0% {
+    transform: translate(0, 100vh) rotate(0deg);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.6;
+  }
+  82% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-15vw, -40vh) rotate(-270deg);
+    opacity: 0;
+  }
+}
+
+.animate-pollen-1 {
+  animation: pollen1 25s infinite linear;
+  animation-delay: -5s;
+  left: 10%;
+}
+
+.animate-pollen-2 {
+  animation: pollen2 30s infinite linear;
+  animation-delay: -10s;
+  left: 30%;
+}
+
+.animate-pollen-3 {
+  animation: pollen3 20s infinite linear;
+  animation-delay: -15s;
+  left: 50%;
+}
+
+.animate-pollen-4 {
+  animation: pollen4 35s infinite linear;
+  animation-delay: -20s;
+  left: 70%;
+}
+
+.animate-pollen-5 {
+  animation: pollen5 28s infinite linear;
+  animation-delay: -2s;
+  left: 85%;
+}
+
+.animate-pollen-6 {
+  animation: pollen6 32s infinite linear;
+  animation-delay: -25s;
+  left: 15%;
+}
+
+/* Improved Firefly Animations with Bezier Curves */
+@keyframes firefly-improved-1 {
+  0% {
+    transform: translate(0vw, 0vh);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    transform: translate(15vw, -10vh);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(30vw, 5vh);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(45vw, -15vh);
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(60vw, -5vh);
+    opacity: 0;
+  }
+}
+
+@keyframes firefly-improved-2 {
+  0% {
+    transform: translate(100vw, 10vh);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  30% {
+    transform: translate(75vw, -5vh);
+    opacity: 0.6;
+  }
+  55% {
+    transform: translate(50vw, 15vh);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(25vw, -8vh);
+    opacity: 0.4;
+  }
+  95% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(0vw, 8vh);
+    opacity: 0;
+  }
+}
+
+@keyframes firefly-improved-3 {
+  0% {
+    transform: translate(20vw, 100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  35% {
+    transform: translate(40vw, 70vh);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translate(60vw, 40vh);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(80vw, 10vh);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(95vw, -10vh);
+    opacity: 0;
+  }
+}
+
+.animate-firefly-improved-1 {
+  animation: firefly-improved-1 18s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: -3s;
+  top: 20%;
+  left: 0%;
+}
+
+.animate-firefly-improved-2 {
+  animation: firefly-improved-2 22s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: -8s;
+  top: 40%;
+  left: 0%;
+}
+
+.animate-firefly-improved-3 {
+  animation: firefly-improved-3 26s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: -15s;
+  top: 60%;
+  left: 0%;
 }

@@ -4,22 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { TextGradient } from "./text";
 import Link from "next/link";
 import { Calendar, CheckCircle, MapPin } from "lucide-react";
+import { ExperienceData } from "@/data";
 
-interface ExperienceItem {
-  role: string;
-  start: string;
-  end: string;
-  site: string;
-  location: string;
-  description: string;
-  summary: string[];
-  tools: string[];
-  company: string;
-}
-
-interface ExperienceData {
-  [company: string]: ExperienceItem[];
-}
 
 const ExperienceTimeline = ({
   experiences,
@@ -30,9 +16,6 @@ const ExperienceTimeline = ({
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const [lineProgress, setLineProgress] = useState(0);
 
-  const flattenedExperiences: ExperienceItem[] = Object.entries(
-    experiences
-  ).flatMap(([company, items]) => items.map((item) => ({ ...item, company })));
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -105,9 +88,41 @@ const ExperienceTimeline = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   return (
-    <section id="timeline" className="relative py-20 pt-10 px-4">
+    <section id="timeline" className="relative py-20 pt-10 px-4 overflow-hidden">
+      {/* Floating Pollen/Spores Animation */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div key={i} className={`absolute animate-pollen-${i}`}>
+            <div 
+              className="w-1 h-1 bg-accent/30 rounded-full shadow-[0_0_4px_theme(colors.accent)]"
+              style={{
+                filter: 'blur(0.5px)',
+              }}
+            />
+          </div>
+        ))}
+        
+        {/* Additional smaller spores */}
+        {[1, 2, 3, 4].map((i) => (
+          <div 
+            key={`spore-${i}`} 
+            className={`absolute animate-pollen-${i + 2}`}
+            style={{
+              left: `${20 + i * 15}%`,
+              animationDelay: `${i * -8}s`,
+            }}
+          >
+            <div 
+              className="w-0.5 h-0.5 bg-primary/20 rounded-full shadow-[0_0_2px_theme(colors.primary)]"
+              style={{
+                filter: 'blur(0.3px)',
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      
       <div className="text-center mb-16">
         <h2 className="shead">
           <TextGradient
@@ -138,7 +153,7 @@ const ExperienceTimeline = ({
               />
             </div>
           </div><div className="space-y-16">
-            {flattenedExperiences.map((exp, index) => {
+            {experiences.map((exp, index) => {
               const isVisible = visibleItems.has(index);
               const isEven = index % 2 === 0;
               return (

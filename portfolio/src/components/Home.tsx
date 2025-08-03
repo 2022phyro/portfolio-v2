@@ -9,14 +9,126 @@ const Home = () => {
     <section
       id="home"
       className="font-ml relative min-h-screen h-full text-text-primary flex flex-col lg:flex-row lg:space-x-10 items-center justify-center lg:justify-evenly px-4 sm:px-6 lg:px-10 py-20 lg:py-0 overflow-hidden"
-    >
-      {/* Background circular gradients */}
+    >      {/* Background circular gradients */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-secondary/20 to-accent rounded-full blur-3xl"></div>
         <div className="absolute bottom-32 right-20 w-56 h-56 bg-gradient-to-r from-primary/15 to-secondary rounded-full blur-3xl"></div>
         <div className="absolute top-1/3 right-3/4 w-32 h-32 bg-gradient-to-r from-accent/15 to-primary/10 rounded-full blur-2xl"></div>
         <div className="absolute bottom-20 left-2/4 w-48 h-48 bg-gradient-to-r from-secondary/15 to-primary/50 rounded-full blur-3xl"></div>
         <div className="absolute top-2/3 left-10 w-24 h-24 bg-gradient-to-r from-primary/20 to-accent/10 rounded-full blur-2xl"></div>
+      </div>
+
+      {/* Animated floating leaves */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Leaf 1 - Light green */}
+        <div className="absolute animate-float-1">
+          <svg width="20" height="24" viewBox="0 0 20 24" className="text-green-300/40">
+            <path
+              d="M10 2 Q6 8 2 12 Q6 20 10 22 Q14 20 18 12 Q14 8 10 2 Z"
+              fill="currentColor"
+            />
+            <path
+              d="M10 2 Q12 8 10 22"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              fill="none"
+            />
+          </svg>
+        </div>
+                <div className="absolute animate-float-1">
+          <svg width="20" height="24" viewBox="0 0 20 24" className="text-green-300/40">
+            <path
+              d="M10 2 Q6 8 2 12 Q6 20 10 22 Q14 20 18 12 Q14 8 10 2 Z"
+              fill="currentColor"
+            />
+            <path
+              d="M10 2 Q12 8 10 22"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        {/* Leaf 2 - Medium green */}
+        <div className="absolute animate-float-2">
+          <svg width="16" height="20" viewBox="0 0 16 20" className="text-green-500/50">
+            <path
+              d="M8 1 Q5 6 2 10 Q5 16 8 18 Q11 16 14 10 Q11 6 8 1 Z"
+              fill="currentColor"
+            />
+            <path
+              d="M8 1 Q9 6 8 18"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        {/* Leaf 3 - Dark green */}
+        <div className="absolute animate-float-3">
+          <svg width="18" height="22" viewBox="0 0 18 22" className="text-green-600/60">
+            <path
+              d="M9 1 Q6 7 3 11 Q6 18 9 20 Q12 18 15 11 Q12 7 9 1 Z"
+              fill="currentColor"
+            />
+            <path
+              d="M9 1 Q10 7 9 20"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        {/* Leaf 4 - Primary green */}
+        <div className="absolute animate-float-4">
+          <svg width="14" height="18" viewBox="0 0 14 18" className="text-primary/40">
+            <path
+              d="M7 1 Q5 5 2 9 Q5 14 7 16 Q9 14 12 9 Q9 5 7 1 Z"
+              fill="currentColor"
+            />
+            <path
+              d="M7 1 Q8 5 7 16"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        {/* Leaf 5 - Accent green */}
+        <div className="absolute animate-float-5">
+          <svg width="22" height="26" viewBox="0 0 22 26" className="text-accent/35">
+            <path
+              d="M11 2 Q7 8 3 13 Q7 21 11 24 Q15 21 19 13 Q15 8 11 2 Z"
+              fill="currentColor"
+            />
+            <path
+              d="M11 2 Q12 8 11 24"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        {/* Leaf 6 - Emerald */}
+        <div className="absolute animate-float-6">
+          <svg width="15" height="19" viewBox="0 0 15 19" className="text-emerald-400/45">
+            <path
+              d="M7.5 1 Q5 6 2 10 Q5 15 7.5 17 Q10 15 13 10 Q10 6 7.5 1 Z"
+              fill="currentColor"
+            />
+            <path
+              d="M7.5 1 Q8.5 6 7.5 17"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              fill="none"
+            />
+          </svg>
+        </div>
       </div>
 
       {/* Image Container - Order 1 on mobile, 2 on desktop */}
