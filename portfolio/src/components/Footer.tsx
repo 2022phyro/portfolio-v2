@@ -42,7 +42,7 @@ const Footer = () => {
                 alt="Afam Logo"
                 width={48}
                 height={48}
-                className="rounded-full shadow-[4px_4px_12px_rgba(176,217,176,0.3),-4px_-4px_12px_rgba(255,255,255,0.8)]"
+                className="rounded-2xl shadow-[4px_4px_12px_rgba(176,217,176,0.3),-4px_-4px_12px_rgba(255,255,255,0.8)]"
               />
               <h3 className="font-q text-2xl font-semibold text-text-primary">
                 Afam Ugwuanyi
@@ -124,7 +124,7 @@ const Footer = () => {
             
             <nav className="space-y-3">
               {[
-                { name: "Resume", href: "/resume.pdf" },
+                { name: "Resume", href: "/Afam_Ugwuanyi_Resume.pdf" },
                 { name: "Github", href: "https://github.com/2022phyro" },
                 // { name: "Blog", href: "/blog" },
                 // { name: "Testimonials", href: "/testimonials" }
