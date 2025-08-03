@@ -211,20 +211,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <Link
-          href="mailto:afam.ugwuanyi.u@gmail.com?subject=Hey%20Afam!%20Let's%20collaborate&body=Hi%20Afam,%0A%0AI%20came%20across%20your%20portfolio%20and%20I'm%20impressed!%20I'd%20love%20to%20discuss%20a%20potential%20collaboration%20or%20project.%0A%0ALet's%20chat!%0A%0ABest%20regards"
-          className="inline-flex  mb-4 items-center space-x-3 px-8 py-4 rounded-full font-q font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group"
-          style={{
-            background: "linear-gradient(135deg, #43766c 0%, #449484ff 100%)",
-            color: "white",
-            boxShadow:
-              "6px_6px_20px_rgba(67,118,108,0.4),-6px_-6px_20px_rgba(255,255,255,0.1)",
-          }}
-        >
-          <Send className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-          <span>Let's Start a Conversation</span>
-          <div className="w-2 h-2 rounded-full bg-white/30 group-hover:bg-white/60 transition-colors duration-300"></div>
-        </Link>
         {/* Social Links Grid */}
         <div className="mb-12">
           <div className="relative">
@@ -301,6 +287,20 @@ const Contact = () => {
               );
             })}
           </div>
+          <Link
+            href="mailto:afam.ugwuanyi.u@gmail.com?subject=Hey%20Afam!%20Let's%20collaborate&body=Hi%20Afam,%0A%0AI%20came%20across%20your%20portfolio%20and%20I'm%20impressed!%20I'd%20love%20to%20discuss%20a%20potential%20collaboration%20or%20project.%0A%0ALet's%20chat!%0A%0ABest%20regards"
+            className="inline-flex  mt-6 items-center space-x-3 px-8 py-4 rounded-full font-q font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group"
+            style={{
+              background: "linear-gradient(135deg, #43766c 0%, #449484ff 100%)",
+              color: "white",
+              boxShadow:
+                "6px_6px_20px_rgba(67,118,108,0.4),-6px_-6px_20px_rgba(255,255,255,0.1)",
+            }}
+          >
+            <Send className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+            <span>Let's Start a Conversation</span>
+            <div className="w-2 h-2 rounded-full bg-white/30 group-hover:bg-white/60 transition-colors duration-300"></div>
+          </Link>
         </div>
       </div>
     </section>
