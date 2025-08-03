@@ -177,7 +177,7 @@ const Home = () => {
           {/* Profile image - made fully circular and smoother */}
           <div className="relative">
             <div className="w-[300px] h-[400px] rounded-full overflow-hidden bg-gradient-to-br from-secondary/10 to-primary/10 p-2">
-              <div className="w-full h-full rounded-full  overflow-hidden bg-gradient-to-br from-white/90 to-white/70 shadow-inner">
+              <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-white/90 to-white/70 dark:from-surface/40 dark:to-surface/60 shadow-inner">
                 <Image
                   src="/profile.png"
                   alt="Profile Picture"

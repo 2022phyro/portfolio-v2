@@ -212,7 +212,7 @@ const ExperienceTimeline = ({
                     }}
                   >
                     <div
-                      className={`self-start bg-white/70 backdrop-blur-sm p-6 pt-8 ${
+                      className={`self-start bg-white/70 dark:bg-surface-muted backdrop-blur-sm p-6 pt-8 border border-border/20 dark:border-border/40 ${
                         isEven ? "leaf-l-alt" : "leaf-l"
                       } shadow-lg border border-[var(--color-border)] transition-all duration-500 hover:shadow-xl hover:scale-105 ${
                         isVisible ? 'shadow-md' : 'shadow-sm'
@@ -253,9 +253,9 @@ const ExperienceTimeline = ({
                     }}
                   >
                     <div
-                      className={`bg-surface-muted/20 min-h-45 backdrop-blur-sm p-6 shadow-md ${
+                      className={`bg-surface-muted/20 dark:bg-surface/40 min-h-45 backdrop-blur-sm p-6 shadow-md ${
                         isEven ? "leaf-l" : "leaf-l-alt pt-8"
-                      } border border-[var(--color-border)] transition-all duration-500 hover:shadow-lg hover:bg-surface-muted/30 ${
+                      } border border-[var(--color-border)] transition-all duration-500 hover:shadow-lg hover:bg-surface-muted/30 dark:hover:bg-surface/60 ${
                         isVisible ? 'shadow-md' : 'shadow-sm'
                       }`}
                     >

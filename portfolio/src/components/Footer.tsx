@@ -23,7 +23,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-br from-background via-surface/30 to-surface-muted/20 border-t border-border/30">
+    <footer className="relative bg-gradient-to-br from-background via-surface/30 to-surface-muted/20 dark:from-background dark:via-surface/20 dark:to-surface/10 border-t border-border/30 dark:border-border/50">
       {/* Background nature gradients */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-primary/10 to-secondary/15 rounded-full blur-2xl"></div>

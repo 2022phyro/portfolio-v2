@@ -73,8 +73,32 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* ==== Core Branding - Dark Mode ==== */
+    --color-primary: #5fb3a3; /* Brighter Pine for visibility */
+    --color-secondary: #7fb8ae; /* Muted Aqua Mint for contrast */
+    --color-accent: #f0f4e1; /* Slightly warmer off-white */
+
+    /* ==== UI Surface & Background - Dark Mode ==== */
+    --color-background: #0f1419; /* Dark greenish background */
+    --color-surface: #1a2327; /* Dark clay surface */
+    --color-surface-alt: #252b2f; /* Darker grey surface */
+    --color-surface-muted: #2d3a3f; /* Dark green highlight */
+
+    /* ==== Shadows & Effects - Dark Mode ==== */
+    --color-shadow: #0a0e11; /* Very dark shadow */
+    --color-highlight: #394448; /* Dark highlight for claymorphism */
+
+    /* ==== Text - Dark Mode ==== */
+    --color-text-primary: #e8f5f3; /* Light mint text */
+    --color-text-muted: #a8b8b5; /* Muted light green text */
+    --color-text-accent: #7fb8ae; /* Accent text matches secondary */
+
+    /* ==== Borders & Effects - Dark Mode ==== */
+    --color-border: #3a4a47; /* Dark border color */
+
+    /* ==== Background Variables for Tailwind ==== */
+    --background: #0f1419;
+    --foreground: #e8f5f3;
   }
 }
 
@@ -717,4 +741,39 @@ button {
   animation-delay: -15s;
   top: 60%;
   left: 0%;
+}
+
+/* ==== Dark Mode Utilities ==== */
+.dark-mode-transition {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Better claymorphism for dark mode */
+.claymorphic-light {
+  background: rgba(var(--color-surface) / 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(var(--color-border) / 0.2);
+  box-shadow: 
+    4px 4px 12px rgba(var(--color-shadow) / 0.2),
+    -4px -4px 12px rgba(var(--color-highlight) / 0.6);
+}
+
+.claymorphic-dark {
+  background: rgba(var(--color-surface) / 0.3);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(var(--color-border) / 0.3);
+  box-shadow: 
+    4px 4px 12px rgba(var(--color-shadow) / 0.4),
+    -4px -4px 12px rgba(var(--color-highlight) / 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .claymorphic-light {
+    background: rgba(var(--color-surface) / 0.3);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(var(--color-border) / 0.3);
+    box-shadow: 
+      4px 4px 12px rgba(var(--color-shadow) / 0.4),
+      -4px -4px 12px rgba(var(--color-highlight) / 0.1);
+  }
 }

@@ -80,16 +80,10 @@ const Contact = () => {
         </div>{" "}
         {/* Fun Content - Side by Side Layout */}
         <div className="mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* Left Side - The Poem */}
-            <div
-              className="p-8 md:p-10 rounded-3xl transition-all duration-500 hover:scale-[1.02] relative overflow-hidden h-full flex items-center"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">            {/* Left Side - The Poem */}
+            <div className="p-8 md:p-10 rounded-3xl transition-all duration-500 hover:scale-[1.02] relative overflow-hidden h-full flex items-center bg-surface/60 dark:bg-surface/40 backdrop-blur-xl border border-border/20 hover:border-primary/30"
               style={{
-                background:
-                  "linear-gradient(135deg, rgba(200, 230, 201, 0.8) 0%, rgba(215, 204, 200, 0.6) 100%)",
-                backdropFilter: "blur(15px)",
-                boxShadow:
-                  "8px_8px_24px_rgba(176,217,176,0.3),-8px_-8px_24px_rgba(255,255,255,0.8)",
+                boxShadow: "8px 8px 24px rgba(var(--color-shadow) / 0.3), -8px -8px 24px rgba(var(--color-highlight) / 0.8)",
                 borderRadius: "60% 40% 40% 20% / 60% 30% 70% 40%",
               }}
             >
@@ -141,17 +135,10 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Right Side - Schrödinger's Dev */}
-            <div
-              className="p-8 md:p-10 rounded-3xl transition-all duration-500 hover:scale-[1.02] relative overflow-hidden h-full flex items-center"
+            </div>            {/* Right Side - Schrödinger's Dev */}
+            <div className="p-8 md:p-10 rounded-3xl transition-all duration-500 hover:scale-[1.02] relative overflow-hidden h-full flex items-center bg-surface/60 dark:bg-surface/40 backdrop-blur-xl border border-border/20 hover:border-secondary/30"
               style={{
-                background:
-                  "linear-gradient(135deg, rgba(215, 204, 200, 0.7) 0%, rgba(200, 230, 201, 0.8) 100%)",
-                backdropFilter: "blur(15px)",
-                boxShadow:
-                  "8px_8px_24px_rgba(176,217,176,0.3),-8px_-8px_24px_rgba(255,255,255,0.8)",
+                boxShadow: "8px 8px 24px rgba(var(--color-shadow) / 0.3), -8px -8px 24px rgba(var(--color-highlight) / 0.8)",
                 borderRadius: "40% 60% 20% 40% / 30% 60% 40% 70%",
               }}
             >
@@ -244,14 +231,9 @@ const Contact = () => {
                   target={social.name !== "Email" ? "_blank" : undefined}
                   rel={
                     social.name !== "Email" ? "noopener noreferrer" : undefined
-                  }
-                  className={`group relative p-6 rounded-2xl transition-all duration-300 ${social.color} transform hover:scale-105 hover:-translate-y-1`}
+                  }                  className={`group relative p-6 rounded-2xl transition-all duration-300 ${social.color} transform hover:scale-105 hover:-translate-y-1 bg-surface/50 dark:bg-surface/30 backdrop-blur-md border border-border/20 hover:border-primary/40`}
                   style={{
-                    background:
-                      "linear-gradient(135deg, rgba(200, 230, 201, 0.6) 0%, rgba(215, 204, 200, 0.5) 100%)",
-                    backdropFilter: "blur(10px)",
-                    boxShadow:
-                      "4px_4px_12px_rgba(176,217,176,0.2),-4px_-4px_12px_rgba(255,255,255,0.6)",
+                    boxShadow: "4px 4px 12px rgba(var(--color-shadow) / 0.2), -4px -4px 12px rgba(var(--color-highlight) / 0.6)",
                   }}
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
@@ -271,30 +253,21 @@ const Contact = () => {
                         {social.description}
                       </p>
                     </div>
-                  </div>
-
-                  {/* Hover glow effect */}
+                  </div>                  {/* Hover glow effect */}
                   <div
-                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-surface/70 dark:bg-surface/50 border border-primary/20"
                     style={{
-                      background:
-                        "linear-gradient(135deg, rgba(200, 230, 201, 0.8) 0%, rgba(215, 204, 200, 0.7) 100%)",
-                      boxShadow:
-                        "8px_8px_24px_rgba(176,217,176,0.4),-8px_-8px_24px_rgba(255,255,255,0.9)",
+                      boxShadow: "8px 8px 24px rgba(var(--color-primary) / 0.4), -8px -8px 24px rgba(var(--color-highlight) / 0.9)",
                     }}
                   />
                 </Link>
               );
             })}
-          </div>
-          <Link
+          </div>          <Link
             href="mailto:afam.ugwuanyi.u@gmail.com?subject=Hey%20Afam!%20Let's%20collaborate&body=Hi%20Afam,%0A%0AI%20came%20across%20your%20portfolio%20and%20I'm%20impressed!%20I'd%20love%20to%20discuss%20a%20potential%20collaboration%20or%20project.%0A%0ALet's%20chat!%0A%0ABest%20regards"
-            className="inline-flex  mt-6 items-center space-x-3 px-8 py-4 rounded-full font-q font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group"
+            className="inline-flex mt-6 items-center space-x-3 px-8 py-4 rounded-full font-q font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group bg-gradient-to-r from-primary to-secondary text-white dark:text-text-primary"
             style={{
-              background: "linear-gradient(135deg, #43766c 0%, #449484ff 100%)",
-              color: "white",
-              boxShadow:
-                "6px_6px_20px_rgba(67,118,108,0.4),-6px_-6px_20px_rgba(255,255,255,0.1)",
+              boxShadow: "6px 6px 20px rgba(var(--color-primary) / 0.4), -6px -6px 20px rgba(var(--color-highlight) / 0.1)",
             }}
           >
             <Send className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />

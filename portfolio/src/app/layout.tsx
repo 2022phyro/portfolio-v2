@@ -75,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased ${mulish.variable} ${quicksand.variable} ${cormorantGaramond.variable}`}
+        className={`antialiased bg-background text-foreground ${mulish.variable} ${quicksand.variable} ${cormorantGaramond.variable}`}
       >
         {children}
       </body>

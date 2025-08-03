@@ -61,7 +61,7 @@ const Header = () => {
         <div
           className={`transition-all duration-300 ease-in-out ${
             isScrolled
-              ? "bg-surface/90 backdrop-blur-lg shadow-[0_8px_32px_rgba(176,217,176,0.3)] border-b border-border/30"
+              ? "bg-surface/90 dark:bg-surface/70 backdrop-blur-lg shadow-lg dark:shadow-primary/10 border-b border-border/30 dark:border-border/50"
               : "bg-transparent"
           }`}
           style={{
@@ -121,7 +121,7 @@ const Header = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 md:hidden backdrop-blur-sm"
+          className="fixed inset-0 z-40 bg-black/50 dark:bg-black/70 md:hidden backdrop-blur-sm"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}

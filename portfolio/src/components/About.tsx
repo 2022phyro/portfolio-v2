@@ -143,7 +143,7 @@ const About = () => {
               <li 
                 key={index}
                 data-index={index}
-                className={`tech-item text-lg flex flex-row gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-center transition-all duration-700 ease-out ${
+                className={`tech-item text-lg flex flex-row gap-2 text-text-primary rounded-md bg-surface-alt dark:bg-surface/60 border border-border/30 dark:border-border/50 p-3 items-center transition-all duration-700 ease-out hover:border-primary/40 ${
                   isItemVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
                 }`}
                 style={{ transitionDelay: `${600 + index * 100}ms` }}
@@ -160,7 +160,7 @@ const About = () => {
           })}
           <li 
             data-index={4}
-            className={`tech-item text-lg flex flex-col gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-start justify-start transition-all duration-700 ease-out ${
+            className={`tech-item text-lg flex flex-col gap-2 text-text-primary rounded-md bg-surface-alt dark:bg-surface/60 border border-border/30 dark:border-border/50 p-3 items-start justify-start transition-all duration-700 ease-out hover:border-primary/40 ${
               visibleItems.has(4) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
             }`}
             style={{ transitionDelay: '1000ms' }}

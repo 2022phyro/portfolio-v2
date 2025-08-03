@@ -142,7 +142,7 @@ const Featured = () => {
                 onMouseLeave={() => setHoveredProject(null)}
                 className={`flex flex-col justify-start col-span-1 ${
                   isWide ? "lg:col-span-4" : "lg:col-span-2"
-                } rounded-xl overflow-hidden bg-surface/30 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-500 group hover:-translate-y-1`}
+                } rounded-xl overflow-hidden bg-surface/30 dark:bg-surface/20 backdrop-blur-sm border border-border/20 dark:border-border/30 shadow-md hover:shadow-lg dark:hover:shadow-primary/20 transition-all duration-500 group hover:-translate-y-1 hover:border-primary/40`}
               >
                 <div className="relative aspect-[3/1.5] overflow-hidden">
                   {" "}
