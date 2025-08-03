@@ -54,7 +54,7 @@ const Contact = () => {
   return (
     <section
       id="connect"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-15"
     >
       {/* Background nature gradients */}
       <div className="absolute inset-0 pointer-events-none">
@@ -113,23 +113,21 @@ const Contact = () => {
                 {/* Four-line poem with proper ABAB rhyme scheme */}
                 <div className="font-ml text-lg md:text-xl leading-relaxed space-y-3">
                   <div className="text-text-primary font-medium">
-                    Have a curiosity? Have a{" "}
-                    <span className="font-bold text-primary">task</span>?
+                    Have a <span className="font-bold text-primary">task</span>?
                   </div>
                   <div className="text-text-muted">
-                    Have a gig, need or{" "}
+                    Have an{" "}
                     <span className="font-semibold text-text-primary">ask</span>
                     ?
                   </div>
                   <div className="text-text-muted">
-                    I guess it will do no{" "}
+                    Does no{" "}
                     <span className="font-semibold text-text-primary">
                       harm
                     </span>
                   </div>
                   <div className="font-q font-bold text-primary text-xl md:text-2xl">
-                    To put a call right to{" "}
-                    <span className="text-2xl md:text-3xl">Afam</span>
+                    Call <span className="text-2xl md:text-3xl">Afam</span>
                   </div>
                 </div>
 
@@ -212,24 +210,43 @@ const Contact = () => {
               </div>
             </div>
           </div>
-
-          {/* Connecting element */}
-          <div className="flex justify-center mt-8">
-            <div className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-primary/10 text-primary font-ml text-sm">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-              <span>Ready to collapse the wave function?</span>
+        </div>
+        <Link
+          href="mailto:afam.ugwuanyi.u@gmail.com?subject=Hey%20Afam!%20Let's%20collaborate&body=Hi%20Afam,%0A%0AI%20came%20across%20your%20portfolio%20and%20I'm%20impressed!%20I'd%20love%20to%20discuss%20a%20potential%20collaboration%20or%20project.%0A%0ALet's%20chat!%0A%0ABest%20regards"
+          className="inline-flex  mb-4 items-center space-x-3 px-8 py-4 rounded-full font-q font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group"
+          style={{
+            background: "linear-gradient(135deg, #43766c 0%, #449484ff 100%)",
+            color: "white",
+            boxShadow:
+              "6px_6px_20px_rgba(67,118,108,0.4),-6px_-6px_20px_rgba(255,255,255,0.1)",
+          }}
+        >
+          <Send className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+          <span>Let's Start a Conversation</span>
+          <div className="w-2 h-2 rounded-full bg-white/30 group-hover:bg-white/60 transition-colors duration-300"></div>
+        </Link>
+        {/* Social Links Grid */}
+        <div className="mb-12">
+          <div className="relative">
+            <div className="absolute -inset-4 pointer-events-none">
               <div
-                className="w-2 h-2 rounded-full bg-secondary animate-pulse"
+                className="absolute top-0 left-0 w-3 h-3 rounded-full bg-primary/20 animate-bounce"
+                style={{ animationDelay: "0s" }}
+              ></div>
+              <div
+                className="absolute top-0 right-0 w-2 h-2 rounded-full bg-secondary/30 animate-bounce"
                 style={{ animationDelay: "0.5s" }}
+              ></div>
+              <div
+                className="absolute bottom-0 left-0 w-2 h-2 rounded-full bg-accent/20 animate-bounce"
+                style={{ animationDelay: "1s" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-primary/15 animate-bounce"
+                style={{ animationDelay: "1.5s" }}
               ></div>
             </div>
           </div>
-        </div>
-        {/* Social Links Grid */}
-        <div className="mb-12">
-          <h3 className="font-q text-xl font-semibold text-text-primary mb-8">
-            Let's Connect
-          </h3>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-3xl mx-auto">
             {socialLinks.map((social) => {
@@ -283,41 +300,6 @@ const Contact = () => {
                 </Link>
               );
             })}
-          </div>
-        </div>
-        {/* Main CTA */}
-        <div className="relative">
-            <Link
-              href="mailto:afam.ugwuanyi.u@gmail.com?subject=Hey%20Afam!%20Let's%20collaborate&body=Hi%20Afam,%0A%0AI%20came%20across%20your%20portfolio%20and%20I'm%20impressed!%20I'd%20love%20to%20discuss%20a%20potential%20collaboration%20or%20project.%0A%0ALet's%20chat!%0A%0ABest%20regards"
-              className="inline-flex items-center space-x-3 px-8 py-4 rounded-full font-q font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group"
-                  style={{
-                    background: "linear-gradient(135deg, #43766c 0%, #449484ff 100%)",
-                    color: "white",
-                    boxShadow:
-                      "6px_6px_20px_rgba(67,118,108,0.4),-6px_-6px_20px_rgba(255,255,255,0.1)",
-                  }}
-            >
-              <Send className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-              <span>Let's Start a Conversation</span>
-              <div className="w-2 h-2 rounded-full bg-white/30 group-hover:bg-white/60 transition-colors duration-300"></div>
-            </Link>
-          <div className="absolute -inset-4 pointer-events-none">
-            <div
-              className="absolute top-0 left-0 w-3 h-3 rounded-full bg-primary/20 animate-bounce"
-              style={{ animationDelay: "0s" }}
-            ></div>
-            <div
-              className="absolute top-0 right-0 w-2 h-2 rounded-full bg-secondary/30 animate-bounce"
-              style={{ animationDelay: "0.5s" }}
-            ></div>
-            <div
-              className="absolute bottom-0 left-0 w-2 h-2 rounded-full bg-accent/20 animate-bounce"
-              style={{ animationDelay: "1s" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-primary/15 animate-bounce"
-              style={{ animationDelay: "1.5s" }}
-            ></div>
           </div>
         </div>
       </div>

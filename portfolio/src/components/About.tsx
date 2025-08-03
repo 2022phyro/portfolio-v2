@@ -115,9 +115,9 @@ const About = () => {
             stories, reading Igbo history, and keeping up with the X-news
           </p>
         </div>
-        <div className="font-ml flex flex-row gap-8">
+        <div className="font-ml flex flex-row justify-evenly gap-8 w-full">
           <p className="flex-col flex gap-0 p-0">
-            <span className="text-5xl font-semibold font-cg">2+</span> years
+            <span className="text-5xl font-semibold font-cg">2+</span> years combined
             experience
           </p>
           <p className="flex-col flex gap-0 p-0">
