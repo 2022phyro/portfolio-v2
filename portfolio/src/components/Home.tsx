@@ -1,15 +1,46 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ThreeDButton from "./elements/button";
 import { TextGradient } from "./text";
 
 const Home = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { 
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="font-ml relative min-h-screen h-full text-text-primary flex flex-col lg:flex-row lg:space-x-10 items-center justify-center lg:justify-evenly px-4 sm:px-6 lg:px-10 py-20 lg:py-0 overflow-hidden"
-    >      {/* Background circular gradients */}
+    >{/* Background circular gradients */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-secondary/20 to-accent rounded-full blur-3xl"></div>
         <div className="absolute bottom-32 right-20 w-56 h-56 bg-gradient-to-r from-primary/15 to-secondary rounded-full blur-3xl"></div>
@@ -129,10 +160,12 @@ const Home = () => {
             />
           </svg>
         </div>
-      </div>
-
-      {/* Image Container - Order 1 on mobile, 2 on desktop */}
-      <div className="relative z-10 order-1 lg:order-2 mb-8 lg:mb-0">
+      </div>      {/* Image Container - Order 1 on mobile, 2 on desktop */}
+      <div className={`relative z-10 order-1 lg:order-2 mb-8 lg:mb-0 transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
+      }`}
+      style={{ transitionDelay: '200ms' }}
+      >
         {/* Profile picture with radiant glow */}
         <div className="relative">
           {/* Outer glow layers - enhanced for more prominence */}
@@ -384,7 +417,11 @@ const Home = () => {
       </div>
 
       {/* Text Content - Order 2 on mobile, 1 on desktop */}
-      <div className="relative z-10 font-mulish space-y-5 h-full order-2 lg:order-1 text-center lg:text-left max-w-lg lg:max-w-none">
+      <div className={`relative z-10 font-mulish space-y-5 h-full order-2 lg:order-1 text-center lg:text-left max-w-lg lg:max-w-none transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+      }`}
+      style={{ transitionDelay: '400ms' }}
+      >
         <h2 className="shead">
           <TextGradient
             className="font-q"

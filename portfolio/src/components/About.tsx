@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ThreeDButton from "./elements/button";
 import { roles, technologies } from "@/data";
@@ -16,8 +17,60 @@ import {
 import { TextGradient } from "./text";
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { 
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    // Observer for animated items
+    const itemObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = parseInt(entry.target.getAttribute("data-index") || "0");
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setVisibleItems((prev) => new Set([...prev, index]));
+            }, index * 100);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+      
+      // Observe tech items
+      const techItems = sectionRef.current.querySelectorAll('.tech-item');
+      techItems.forEach((item) => itemObserver.observe(item));
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+        const techItems = sectionRef.current.querySelectorAll('.tech-item');
+        techItems.forEach((item) => itemObserver.unobserve(item));
+      }
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="about"
       className="relative min-h-screen h-full flex flex-col sm:flex-row items-start justify-evenly px-4 sm:px-10 lg:px-30 py-10 sm:space-x-10"
     >
@@ -29,7 +82,11 @@ const About = () => {
         <div className="absolute top-2/3 left-10 w-24 h-24 bg-gradient-to-r from-primary/20 to-accent/10 rounded-full blur-2xl"></div>
       </div>
 
-      <div className="relative w-auto max-w-[450px] z-10 flex flex-col items-start space-y-5 h-full">
+      <div className={`relative w-auto max-w-[450px] z-10 flex flex-col items-start space-y-5 h-full transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+      }`}
+      style={{ transitionDelay: '200ms' }}
+      >
         <h2 className="shead">
           <TextGradient
             className="font-q"
@@ -71,53 +128,52 @@ const About = () => {
             satisfaction
           </p>
         </div>
-      </div>
-
-      <div className="relative z-10 font-mulish space-y-5 h-full mt-8 sm:mt-0">
+      </div>      <div className={`relative z-10 font-mulish space-y-5 h-full mt-8 sm:mt-0 transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+      }`}
+      style={{ transitionDelay: '400ms' }}
+      >
         <ul className="flex flex-col gap-4 md:gap-10 py-4 font-q">
-          <li className="text-lg flex flex-row gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-center">
-            <Monitor
-              size={24}
-              strokeWidth={1}
-              fill="#f5f5f5"
-              className="bg-inherit"
-            />
-            Fullstack Development
-          </li>
-          <li className="text-lg flex flex-row gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-center">
-            <Database
-              size={24}
-              strokeWidth={1}
-              fill="#f5f5f5"
-              className="bg-inherit"
-            />
-            Database Systems
-          </li>
-          <li className="text-lg flex flex-row gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-center">
-            <MonitorCog
-              size={24}
-              strokeWidth={1}
-              fill="#f5f5f5"
-              className="bg-inherit"
-            />
-            Systems Design
-          </li>
-          <li className="text-lg flex flex-row gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-center">
-            <LibraryBig
-              size={24}
-              strokeWidth={1}
-              fill="#f5f5f5"
-              className="bg-inherit"
-            />
-            Teaching & Education
-          </li>
-          <li className="text-lg flex flex-col gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-start justify-start">
+          {roles.map((role, index) => {
+            const icons = [Monitor, Database, MonitorCog, LibraryBig];
+            const IconComponent = icons[index] || Monitor;
+            const isItemVisible = visibleItems.has(index);
+            
+            return (
+              <li 
+                key={index}
+                data-index={index}
+                className={`tech-item text-lg flex flex-row gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-center transition-all duration-700 ease-out ${
+                  isItemVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
+                }`}
+                style={{ transitionDelay: `${600 + index * 100}ms` }}
+              >
+                <IconComponent
+                  size={24}
+                  strokeWidth={1}
+                  fill="#f5f5f5"
+                  className="bg-inherit"
+                />
+                {role}
+              </li>
+            );
+          })}
+          <li 
+            data-index={4}
+            className={`tech-item text-lg flex flex-col gap-2 text-text-primary rounded-md bg-surface-alt border border-secondary p-3 items-start justify-start transition-all duration-700 ease-out ${
+              visibleItems.has(4) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
+            }`}
+            style={{ transitionDelay: '1000ms' }}
+          >
             <h4>Favorite Tools</h4>
             <ul>
               {technologies.map((tech, index) => (
                 <li
                   key={index}
-                  className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 text-sm font-semibold mr-2 mb-2"
+                  className={`inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 text-sm font-semibold mr-2 mb-2 transition-all duration-500 ease-out ${
+                    visibleItems.has(4) ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                  }`}
+                  style={{ transitionDelay: `${1200 + index * 50}ms` }}
                 >
                   {tech}
                 </li>

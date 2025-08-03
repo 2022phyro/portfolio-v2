@@ -155,7 +155,7 @@ export const projects: ProjectItem[] = [
     description:
       "Developed a web push notification engine using Node.js and Redis that eliminated reliance on third-party services like Firebase Cloud Messaging.",
     image: "/notifai.png",
-    link: "https://notifai.app",
+    link: "https://github.com/2022phyro/notifai-frontend",
     tags: ["Node.js", "Web Push", "MongoDB", "Redis"],
     category: "personal",
     layout: "narrow"
@@ -165,9 +165,9 @@ export const projects: ProjectItem[] = [
     description:
       "Designed the backend system for a creative social network that enables poets and writers to post, interact, and share their works in a beautifully minimal interface.",
     image: "/poeticverse.png",
-    link: "https://www.poeticverse.com",
+    link: "https://github.com/2022phyro/poeticverse",
     tags: ["Node.js", "Socket.IO", "Kafka", "Docker"],
-    category: "personal",
+    category: "collaborative",
     layout: "wide"
   }
 ];

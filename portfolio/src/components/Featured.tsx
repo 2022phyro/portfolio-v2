@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Github } from "lucide-react";
@@ -9,6 +9,56 @@ import { TextGradient } from "./text";
 
 const Featured = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [visibleProjects, setVisibleProjects] = useState<Set<number>>(new Set());
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { 
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    // Observer for project cards
+    const projectObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = parseInt(entry.target.getAttribute("data-project-index") || "0");
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setVisibleProjects((prev) => new Set([...prev, index]));
+            }, index * 150);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+      
+      // Observe project cards
+      const projectCards = sectionRef.current.querySelectorAll('.project-card');
+      projectCards.forEach((card) => projectObserver.observe(card));
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+        const projectCards = sectionRef.current.querySelectorAll('.project-card');
+        projectCards.forEach((card) => projectObserver.unobserve(card));
+      }
+    };
+  }, []);
 
   return (
     <section
@@ -137,8 +187,8 @@ const Featured = () => {
                           project.category === "industry"
                             ? "text-primary"
                             : project.category === "collaborative"
-                            ? "text-text-muted"
-                            : "text-text-accent"
+                            ? "text-text-accent"
+                            : "text-text-muted"
                         }`}
                       >
                         <path
@@ -159,8 +209,8 @@ const Featured = () => {
                           project.category === "industry"
                             ? "text-primary"
                             : project.category === "collaborative"
-                            ? "text-text-muted"
-                            : "text-text-accent"
+                            ? "text-text-accent"
+                            : "text-text-muted"
                         }`}
                       >
                         {project.category}
