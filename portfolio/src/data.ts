@@ -135,7 +135,7 @@ export const projects: ProjectItem[] = [
     name: "Metamuse",
     description:
       "Led the backend and system architecture of Metamuse, a real-time collaborative canvas where users co-create art and mint it as NFTs on the Sui blockchain. Built with CRDT syncing, live chat, and marketplace integration.",
-    image: "/shell.png",
+    image: "/metamuse.png",
     link: "https://art.metamuse.online",
     tags: ["Fabric.js", "Yjs", "WebSockets", "Sui Blockchain", "Node.js"],
     category: "industry",
@@ -144,9 +144,9 @@ export const projects: ProjectItem[] = [
   {
     name: "Simple Shell",
     description:
-      "Built a basic Unix shell in C as a joint systems programming project with a close collaborator. This marked the beginning of my development journey, and taught me the internals of process management and memory handling.",
+      "Built a basic Unix shell in C as a joint systems programming project with a close collaborator, Dave. This marked the beginning of my development journey, and taught me the internals of process management and memory handling.",
     image: "/shell.png",
-    link: "#",
+    link: "https://github.com/Mcsavvy/simple_shell",
     tags: ["C", "Bash", "Processes", "Pipes", "Memory"],    category: "collaborative",
     layout: "narrow"
   },

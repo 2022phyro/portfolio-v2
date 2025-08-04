@@ -156,7 +156,7 @@ const Featured = () => {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div
-                    className={`absolute inset-0 bg-primary/70 z-20 flex items-center justify-center gap-3 backdrop-blur-sm transition-opacity duration-300 ${
+                    className={`absolute inset-0 bg-primary/20 z-20 flex items-center justify-center gap-3 backdrop-blur-sm transition-opacity duration-300 ${
                       hoveredProject === index ? "opacity-100" : "opacity-0"
                     }`}
                   >
@@ -164,11 +164,11 @@ const Featured = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 bg-accent/25 rounded-full text-accent hover:bg-accent/35 hover:scale-110 transition-all duration-200"
+                      className="p-2.5 bg-accent/25 border border-primary rounded-full text-accent hover:bg-accent/35 hover:scale-110 transition-all duration-200"
                     >
                         {project.link.includes("github") ? 
-                        <Github className="w-5 h-5" /> :
-                        <ExternalLink className="w-5 h-5" />
+                        <Github className="w-5 h-5 w-5 h-5 text-black/80" /> :
+                        <ExternalLink className="w-5 h-5 text-black/80" />
                         }
                     </Link>
                   </div>
@@ -217,7 +217,7 @@ const Featured = () => {
                       </span>
                     </div>
                   </div>
-                  <p className="text-sm text-text-muted leading-relaxed mb-3 font-mulish line-clamp-2">
+                  <p className="text-sm text-text-muted leading-relaxed mb-3 font-mulish text-wrap">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
