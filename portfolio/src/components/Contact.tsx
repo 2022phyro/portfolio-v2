@@ -166,7 +166,7 @@ const Contact = () => {
                   <div className="font-ml text-base md:text-lg text-text-muted leading-relaxed">
                     But seriously,
                   </div>
-                  <div className="font-semibold text-text-primary text-xl md:text-2xl">
+                  <div className="font-semibold font-q text-text-primary text-xl md:text-2xl">
                     Schrödinger's dev.
                   </div>
                   <div className="font-ml text-base md:text-lg text-text-muted leading-relaxed">

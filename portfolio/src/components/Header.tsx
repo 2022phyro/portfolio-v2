@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Menu, Twitter, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "home", href: "#home", id: "home" },
@@ -97,24 +98,26 @@ const Header = () => {
                   className="mr-2"
                 />
                 <span className=" hidden sm:inline">Afam</span>
-              </Link>
-              {/* Desktop Navigation */}
-              <nav className="hidden md:flex">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`relative font-q text-lg transition-all duration-200 group px-3 py-1 ${
-                      activeSection === item.id
-                        ? "text-primary font-bold lowercase"
-                        : "text-text-muted/80 hover:text-primary font-medium"
-                    }`}
-                  >
-                    {activeSection === item.id && <span>/</span>}
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
+              </Link>              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-4">
+                <nav className="flex">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`relative font-q text-lg transition-all duration-200 group px-3 py-1 ${
+                        activeSection === item.id
+                          ? "text-primary font-bold lowercase"
+                          : "text-text-muted/80 hover:text-primary font-medium"
+                      }`}
+                    >
+                      {activeSection === item.id && <span>/</span>}
+                      {item.name}
+                    </Link>
+                  ))}
+                </nav>
+                <ThemeToggle />
+              </div>
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMobileMenu}
@@ -166,8 +169,7 @@ const Header = () => {
             >
               <X size={32}/>
             </button>
-          </div>
-          {/* Mobile Navigation */}
+          </div>          {/* Mobile Navigation */}
           <nav className="flex-1 px-6 py-8">
             <div className="flex flex-col space-y-6">
               {navItems.map((item) => (
@@ -185,39 +187,15 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              {/* Theme Toggle in Mobile */}
+              <div className="pt-4 border-t border-border/30">
+                <div className="flex items-center justify-between">
+                  <span className="font-q text-lg text-text-muted">Theme</span>
+                  <ThemeToggle />
+                </div>
+              </div>
             </div>
           </nav>
-          {/* Mobile Footer with Social Icons */}
-          <div className="px-6 py-6 border-t border-border/30">
-            <div className="flex space-x-4 justify-center mb-4">
-              
-              {[
-                { href: "mailto:afam.ugwuanyi.u@gmail.com", icon: Mail },
-                { href: "https://github.com/yourusername", icon: Github },
-                { href: "https://twitter.com/yourusername", icon: Twitter },
-                {
-                  href: "https://linkedin.com/in/yourusername",
-                  icon: Linkedin,
-                },
-              ].map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <Link
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-full text-text-muted hover:text-primary transition-all duration-200"
-                  >
-                    <Icon className="w-6 h-6" />
-                  </Link>
-                );
-              })}
-            </div>
-            <p className="font-ml text-text-muted text-sm text-center">
-              © 2025 Portfolio
-            </p>
-          </div>
         </div>
       </div>
     </>

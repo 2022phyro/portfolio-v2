@@ -5,3 +5,5 @@ export { default as Tree } from './Timeline';
 export { default as Featured } from './Featured';
 export { default as Contact } from './Contact';
 export { default as Footer } from './Footer';
+export { ThemeToggle } from './ThemeToggle';
+export { ThemeProvider } from './ThemeProvider';

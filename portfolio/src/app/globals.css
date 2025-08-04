@@ -71,8 +71,7 @@ html {
   --font-style: var(--style);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+  :root.dark {
     /* ==== Core Branding - Dark Mode ==== */
     --color-primary: #5fb3a3; /* Brighter Pine for visibility */
     --color-secondary: #7fb8ae; /* Muted Aqua Mint for contrast */
@@ -100,7 +99,6 @@ html {
     --background: #0f1419;
     --foreground: #e8f5f3;
   }
-}
 
 body {
   background: var(--background);
