@@ -6,7 +6,7 @@ import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, systemTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -14,11 +14,11 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="p-2 rounded-full border border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-600 transition-all duration-300"
+        className="p-2 rounded-full border border-gray-300 dark:border-gray-600 transition-all duration-300"
         disabled
         aria-label="Toggle theme"
       >
-        <div className="w-5 h-5 bg-gray-300 dark:bg-gray-600 animate-pulse rounded" />
+        <div className="w-5 h-5 animate-pulse rounded" />
       </button>
     );
   }
